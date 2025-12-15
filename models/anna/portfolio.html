@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna | Portfolio</title>
+    
+    <!-- Importing required fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@300;400&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #FFFFFF;
+            --primary-text: #000000;
+            --secondary-bg: #000000;
+            --secondary-text: #FFFFFF;
+            --transparent-black: rgba(0, 0, 0, 0.95);
+            --font-title: 'Montserrat', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Header and Menu CSS --- */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            background-color: var(--primary-bg);
+            z-index: 50;
+            box-sizing: border-box;
+        }
+
+        .header-logo img {
+            height: 70px; 
+            max-width: 100%;
+        }
+
+        .main-header .header-logo {
+            font-family: var(--font-title);
+            font-weight: 300;
+            font-size: 1.5rem;
+        }
+        
+        .header-logo a {
+             text-decoration: none;
+        }
+
+        .menu-icon {
+            cursor: pointer;
+            z-index: 101;
+        }
+
+        .menu-icon .line {
+            width: 30px;
+            height: 2px;
+            background-color: var(--primary-text); 
+            margin: 6px 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .menu-icon.open .line {
+            background-color: var(--secondary-text); 
+        }
+        
+        .menu-icon.open .line:first-child {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .menu-icon.open .line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-icon.open .line:last-child {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .menu-overlay {
+            height: 100%;
+            width: 0; 
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            background-color: var(--transparent-black);
+            overflow-x: hidden;
+            transition: 0.5s;
+            text-align: center;
+        }
+
+        .menu-overlay .menu-content {
+            position: relative;
+            top: 150px; 
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .menu-overlay .menu-item {
+            padding: 12px;
+            text-decoration: none;
+            font-size: 1.8rem;
+            color: var(--secondary-text);
+            display: block;
+            transition: 0.3s;
+            font-weight: 400; 
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: var(--font-title); 
+        }
+
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .submenu-item {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: var(--secondary-text);
+            display: block;
+            font-weight: 300;
+            text-transform: uppercase;
+            font-family: var(--font-title);
+        }
+
+        @media (min-width: 992px) {
+            .menu-icon { display: none; }
+            .menu-overlay { width: auto !important; height: auto; position: static; background-color: transparent; overflow: visible; transition: none; display: flex; align-items: center; z-index: 50; }
+            .menu-overlay .menu-content { position: static; top: auto; width: auto; margin-top: 0; display: flex; align-items: center; gap: 30px; }
+            .menu-overlay .menu-item { padding: 0; font-size: 0.9rem; color: var(--primary-text); display: block; position: relative; font-weight: 400; }
+            #info-dropdown { cursor: default; position: relative; }
+            .submenu {
+                position: absolute; top: 100%; left: 50%; transform: translateX(-50%); min-width: 200px;
+                background-color: var(--secondary-bg); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); z-index: 60;
+                max-height: 0 !important; visibility: hidden; opacity: 0; transition: opacity 0.3s, visibility 0.3s;
+                display: flex; flex-direction: column; align-items: stretch;
+            }
+            #info-dropdown:hover .submenu { max-height: 500px !important; visibility: visible; opacity: 1; }
+            .submenu-item { padding: 10px 15px; font-size: 0.9rem; color: var(--secondary-text); text-align: center; white-space: nowrap; border-bottom: none; }
+            .submenu-item:hover { background-color: rgba(255, 255, 255, 0.1); }
+        }
+        /* --- End Header and Menu CSS --- */
+
+        /* --- Portfolio Layout --- */
+        .portfolio-container {
+            padding-top: 100px; /* Space for fixed header */
+            padding-bottom: 50px;
+            padding-left: 20px;
+            padding-right: 20px;
+            max-width: 1400px; 
+            margin: 0 auto;
+        }
+        
+        /* Wrapper for the initial 2-column layout (Model Info & Hero Image) */
+        .model-info-visual-wrapper {
+            display: block; /* Mobile: Stacks */
+            margin-bottom: 50px; 
+        }
+        
+        /* Desktop Layout (2 Columns for the wrapper) */
+        @media (min-width: 992px) {
+            .model-info-visual-wrapper {
+                display: grid;
+                grid-template-columns: 300px 1fr; /* Fixed width left, fluid right */
+                gap: 50px;
+            }
+
+            .left-column {
+                position: sticky; 
+                top: 150px; 
+                height: fit-content;
+                margin-bottom: 0;
+                text-align: center; /* Center the entire left column content */
+                padding-top: 0;
+            }
+            
+            /* Adjust strong element for better centering of key-value pairs */
+            .model-details strong {
+                display: inline; /* Revert to inline */
+                margin-right: 5px; /* Add a small gap */
+                font-weight: 500;
+                min-width: auto;
+            }
+        }
+
+        /* Mobile Layout */
+        .left-column {
+            padding-top: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .right-column {
+            padding-top: 0;
+            margin-bottom: 0;
+        }
+
+        /* Model Name & Back Link */
+        .model-name {
+            font-family: var(--font-title);
+            font-weight: 400;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin: 0;
+            padding: 10px 0 20px 0;
+        }
+        
+        /* Back Button Styling */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+            color: var(--primary-text);
+            padding: 5px 0;
+            transition: opacity 0.2s;
+        }
+        
+        .back-icon {
+            margin-right: 8px;
+            width: 16px;
+            height: 16px;
+            transform: translateY(1px);
+        }
+        
+        /* Positioning the Back Link */
+        @media (min-width: 992px) {
+            .model-header-wrapper {
+                position: relative; 
+                text-align: center;
+                margin-bottom: 30px;
+                /* Added padding-left to create space between the Back link (left=0) and the centered Model Name */
+                padding-left: 100px; 
+            }
+            .model-name {
+                font-size: 4rem;
+                letter-spacing: 8px;
+            }
+            .back-link-desktop {
+                position: absolute;
+                left: 0; 
+                top: 50%;
+                transform: translateY(-50%);
+                display: inline-flex;
+            }
+            .back-link-mobile { display: none; }
+        }
+
+        @media (max-width: 991px) {
+            .back-link-desktop { display: none; }
+            .back-link-mobile { 
+                 position: relative;
+                 float: left; 
+                 display: inline-flex; 
+            }
+        }
+
+        /* Model Details (Stats) */
+        .model-details {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .model-details h3 {
+             font-family: var(--font-title);
+             font-size: 1.1rem;
+             font-weight: 400;
+             margin-bottom: 15px;
+             text-transform: uppercase;
+             letter-spacing: 1px;
+        }
+
+        .model-details p {
+            margin: 5px 0;
+        }
+        
+        /* --- Right Column - Hero Image --- */
+        .hero-image-container {
+            margin-bottom: 0;
+        }
+        
+        /* Constrain image size on desktop and center it */
+        @media (min-width: 992px) {
+            .hero-image-container {
+                max-width: 500px; /* Constrain image to a professional size */
+                margin-left: auto; 
+                margin-right: auto;
+            }
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 4 / 5; 
+        }
+
+        /* --- Full-Width Tabbed Gallery Section --- */
+        .model-gallery-section {
+            padding-top: 20px;
+        }
+
+        /* Wrapper to center all tab content and tabs */
+        .gallery-content-wrapper {
+            max-width: 1100px; 
+            margin: 0 auto;
+        }
+        
+        .tab-controls {
+            display: flex;
+            justify-content: flex-start;
+            gap: 30px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 30px;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            font-family: var(--font-title);
+            font-weight: 400;
+            font-size: 1rem;
+            text-transform: uppercase;
+            padding: 10px 0;
+            cursor: pointer;
+            color: #777;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            outline: none;
+        }
+        
+        .tab-button.active {
+            color: var(--primary-text);
+            border-bottom: 2px solid var(--primary-text);
+            font-weight: 700;
+        }
+
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .model-gallery {
+            display: grid;
+            gap: 20px;
+        }
+        
+        /* Digitals Tab: 2 images per row, centered */
+        #digitals .model-gallery {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 800px; 
+            margin: 0 auto;
+        }
+        
+        /* Portraits Tab: Default responsive grid for 3+ images */
+        #portraits .model-gallery {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        /* Videos Tab: 2 videos per row, responsive, centered */
+        #videos .model-gallery {
+            grid-template-columns: 1fr; /* Mobile: 1 video per row */
+            max-width: 1100px; 
+            margin: 0 auto;
+        }
+        
+        @media (min-width: 768px) {
+             #videos .model-gallery {
+                grid-template-columns: repeat(2, 1fr); /* Tablet/Desktop: 2 videos per row */
+            }
+        }
+        
+        /* Style for responsive video embeds (16:9) */
+        .video-embed-container {
+            width: 100%;
+            padding-bottom: 56.25%; /* 9/16 = 0.5625 */
+            position: relative;
+            height: 0;
+            overflow: hidden;
+            background-color: #000;
+            border-radius: 5px; /* Aesthetic */
+        }
+
+        .video-embed-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .gallery-item-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 4 / 5;
+            border-radius: 5px; /* Aesthetic */
+        }
+        
+        /* --- Footer Styles --- */
+        .main-footer {
+            background-color: var(--secondary-bg);
+            color: var(--secondary-text);
+            padding: 40px 10%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .footer-section { margin-bottom: 2rem; width: 100%; }
+        .footer-section h3 { font-size: 1.2rem; text-transform: uppercase; margin-bottom: 10px; font-weight: 300; font-family: var(--font-heading); }
+        .footer-section p, .footer-section a { margin: 5px 0; font-weight: 300; text-decoration: none; color: var(--secondary-text); font-size: 0.9rem; line-height: 1.4; }
+        .contact-row { display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .footer-row { margin-top: 0.5rem; width: 100%; }
+        
+        @media (min-width: 768px) {
+            .main-footer { flex-direction: row; flex-wrap: wrap; justify-content: space-around; align-items: flex-start; text-align: left; padding: 60px 5%; }
+            .footer-section { flex: 1 1 30%; margin-bottom: 0; padding: 0 15px; max-width: 350px; }
+            .footer-section .contact-row { justify-content: flex-start; }
+            .footer-row { flex-basis: 100%; text-align: center; margin-top: 30px; padding-top: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="header-logo">
+            <a href="../../scouted.html" aria-label="NTA Models Scouting Link">
+                <!-- Updated the src to correctly reference scout.png in the root folder -->
+                <img src="../../scout.png" alt="NTA Models Scouting Logo" onerror="this.onerror=null; this.src='https://placehold.co/150x70/FFFFFF/000000?text=NTA+SCOUT'">
+            </a>
+        </div>
+        
+        <div class="menu-icon" id="menu-icon">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <div id="menu-overlay" class="menu-overlay">
+            <div class="menu-content">
+                <a href="../../index.html" class="menu-item">HOME</a>
+                
+                <div class="menu-item" id="info-dropdown">INFO
+                    <div class="submenu" id="info-submenu">
+                        <a href="../../about.html" class="submenu-item">ABOUT</a> 
+                        <a href="../../policy.html" class="submenu-item">POLICY</a>
+                        <a href="../../terms.html" class="submenu-item">TERMS & CONDITIONS</a>
+                        <a href="../../contact.html" class="submenu-item">CONTACT</a>
+                    </div>
+                </div>
+                
+                <a href="../../scouted.html" class="menu-item">SCOUTED</a>
+                <a href="../../getscouted.html" class="menu-item">GET SCOUTED</a>
+                <a href="../../faqs.html" class="menu-item">FAQS</a>
+                <a href="../../agencies.html" class="menu-item">associated agencies</a>
+            </div>
+        </div>
+    </header>
+    <!-- END HEADER -->
+
+    <div class="portfolio-container">
+        
+        <!-- SECTION 1: TWO COLUMNS (Model Info & Hero Image) -->
+        <div class="model-info-visual-wrapper">
+            <!-- LEFT COLUMN (Name, Back Link, Details) - CENTRED ON DESKTOP -->
+            <div class="left-column">
+                
+                <!-- Mobile Back Link -->
+                <a href="../../scouted.html" class="back-link back-link-mobile" aria-label="Go back to Scouted Models">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    BACK
+                </a>
+
+                <div class="model-header-wrapper">
+                    <!-- Desktop Back Link (Aligned far left of the column) -->
+                    <a href="../../scouted.html" class="back-link back-link-desktop" aria-label="Go back to Scouted Models">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        BACK
+                    </a>
+                    
+                    <!-- Model Name (Centered) -->
+                    <h1 class="model-name">ANASTASIIA</h1> 
+                </div>
+
+                <!-- Model Details/Stats (Centred) -->
+                <div class="model-details">
+                    <h3>VITAL STATISTICS</h3>
+                    <p><strong>Height:</strong> 170 cm</p>
+                    <p><strong>Bust:</strong> 90 cm </p>
+                    <p><strong>Waist:</strong> 62 cm </p>
+                    <p><strong>Hips:</strong> 88 cm </p>
+                    <p><strong>Shoe:</strong> EU 5 / US 38</p>
+                    <p><strong>Hair:</strong> Dark Brown</p>
+                    <p><strong>Eyes:</strong> Brown</p>
+                    
+                    <h3 style="margin-top: 30px;">contact</h3>
+                    
+                    <p><strong>Location:</strong>Europe (Warsaw, Poland).</p>
+                    <p><strong>Email:</strong>models@ntamodels.co.za</p>
+                    <p><strong>Satus:</strong>NOT PLACED </p>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN (Hero Image ONLY) - CONSTRAINED SIZE ON DESKTOP -->
+            <div class="right-column">
+                <!-- The single main portrait image -->
+                <div class="hero-image-container">
+                    <img src="ana3.jpg" alt="Anna Main Portfolio Image" class="hero-image" onerror="this.onerror=null; this.src='https://placehold.co/800x1000/aaaaaa/FFFFFF?text=Main+Image'">
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: FULL-WIDTH TABBED GALLERY -->
+        <section class="model-gallery-section">
+            
+            <div class="gallery-content-wrapper">
+            
+                <!-- Tab Controls -->
+                <div class="tab-controls">
+                    <button class="tab-button active" data-tab="digitals">DIGITALS</button>
+                    <button class="tab-button" data-tab="portraits">PORTRAITS</button>
+                    <button class="tab-button" data-tab="videos">VIDEOS</button>
+                </div>
+                
+                <!-- Tab Content: DIGITALS (2x2 Grid, Centered) -->
+                <div id="digitals" class="tab-content active">
+                    <div class="model-gallery">
+                        <img src="ana3.jpg" alt="Anna Digital 1" class="gallery-item-image">               
+                        <img src="ana4.jpg" alt="Anna Digital 2" class="gallery-item-image">
+                        <img src="ana2.jpg" alt="Anna Digital 3" class="gallery-item-image">
+                        <img src="ana1.jpg" alt="Anna Digital 4" class="gallery-item-image">
+                    </div>
+                </div>
+
+                <!-- Tab Content: PORTRAITS (Responsive Grid) -->
+                <div id="portraits" class="tab-content">
+                    <div class="model-gallery">
+                        <img src="ana11.jpg" alt="Anna Portrait Editorial 1" class="gallery-item-image">
+                        <img src="ana10.jpg" alt="Anna Portrait Editorial 2" class="gallery-item-image">
+                        <img src="ana1.jpg" alt="Anna Portrait Beauty 3" class="gallery-item-image">
+                    </div>
+                    <div class="model-gallery">
+                        <img src="ana2.jpg" alt="Anna Portrait Editorial 1" class="gallery-item-image">
+                        <img src="ana4.jpg" alt="Anna Portrait Editorial 2" class="gallery-item-image">
+                        <img src="ana3.jpg" alt="Anna Portrait Beauty 3" class="gallery-item-image">
+                    </div>
+                </div>
+
+                <!-- Tab Content: VIDEOS (2 per Row, Responsive YouTube Embeds) -->
+                <div id="videos" class="tab-content">
+                    <div class="model-gallery">
+                        <!-- Video 1 (Autoplay, Muted start, Modest Branding, No Related) -->
+                        <div class="video-embed-container">
+                            <iframe 
+                                src="https://youtu.be/_jQG3HvgOMg" 
+                                title="YouTube video player 1" 
+                                frameborder="0" 
+                                allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                       
+                    </div>
+                </div>
+                
+            </div> <!-- End gallery-content-wrapper -->
+
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-section">
+            <h3>LOCATION</h3>
+            <p>Cape Town, South Africa</p>
+        </div>
+        <div class="footer-section">
+            <h3>OPERATING HOURS</h3>
+            <p>Monday - Friday: 10am - 7pm</p>
+            <p>Saturday: 11am - 7pm</p>
+            <p>Sunday: Closed</p>
+        </div>
+        <div class="footer-section">
+            <h3>CONTACT</h3>
+            <div class="contact-row">
+                <a href="https://www.instagram.com/ntamodelssa" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
+                </a>
+                <span class="separator">|</span>
+                <span>+27 78 009 3318</span>
+            </div>
+            <p style="margin-top: 10px;">models@ntamodels.co.za</p>
+        </div>
+        <div class="footer-row">
+            <p>Copyright © 2025 NTA Scouting & Placement Agency. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- END FOOTER -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Menu Toggle Logic ---
+            const menuIcon = document.getElementById('menu-icon');
+            const menuOverlay = document.getElementById('menu-overlay');
+            const infoDropdown = document.getElementById('info-dropdown');
+            const infoSubmenu = document.getElementById('info-submenu');
+            const body = document.body;
+            
+            const isDesktop = () => window.matchMedia("(min-width: 992px)").matches;
+
+            if (menuIcon && menuOverlay) {
+                 menuIcon.addEventListener('click', () => {
+                    if (!isDesktop()) {
+                        if (menuOverlay.style.width === '100%') {
+                            closeNav();
+                        } else {
+                            openNav();
+                        }
+                    }
+                });
+            }
+
+            menuOverlay.addEventListener('click', (e) => {
+                if (!isDesktop() && e.target === menuOverlay) {
+                    closeNav();
+                }
+            });
+
+            infoDropdown.addEventListener('click', () => {
+                if (!isDesktop()) {
+                    if (infoSubmenu.style.maxHeight) {
+                        infoSubmenu.style.maxHeight = null;
+                    } else {
+                        infoSubmenu.style.maxHeight = infoSubmenu.scrollHeight + 'px';
+                    }
+                }
+            });
+
+            function openNav() {
+                menuOverlay.style.width = '100%';
+                menuIcon.classList.add('open');
+                body.style.overflow = 'hidden';
+            }
+
+            function closeNav() {
+                menuOverlay.style.width = '0%';
+                menuIcon.classList.remove('open');
+                body.style.overflow = 'auto';
+                infoSubmenu.style.maxHeight = null; 
+            }
+            
+            // --- Tab Switching Logic ---
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+
+                    // Deactivate all buttons and content
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Activate the clicked button and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
