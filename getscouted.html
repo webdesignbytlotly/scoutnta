@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Scouted | NTA Models Scouting</title>
+    
+    <meta name="description" content="Apply to join NTA Models SA. Submit your photos and details to be discovered by our scouting team and start your modeling career.">
+    <meta name="keywords" content="modeling application, become a model South Africa, NTA scouting application, model agency submission">
+    <meta name="author" content="NTA Scouting & Placement Agency">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@300;400&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #FFFFFF;
+            --primary-text: #000000;
+            --secondary-bg: #000000;
+            --secondary-text: #FFFFFF;
+            --transparent-black: rgba(0, 0, 0, 0.95);
+            --font-title: 'Montserrat', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --accent-color: #A9A9A9; /* Dark Gray for accents */
+            --error-color: #dc2626;
+        }
+        
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 300;
+        }
+        
+        /* Header Styles (Existing) */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            background-color: var(--primary-bg);
+            z-index: 50;
+            box-sizing: border-box;
+            box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-logo img {
+            height: 70px; 
+            max-width: 100%;
+        }
+
+        .header-logo a {
+            text-decoration: none;
+        }
+
+        /* Menu Icon (Existing) */
+        .menu-icon {
+            cursor: pointer;
+            z-index: 101;
+        }
+
+        .menu-icon .line {
+            width: 30px;
+            height: 2px;
+            background-color: var(--primary-text); 
+            margin: 6px 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .menu-icon.open .line {
+            background-color: var(--secondary-text); 
+        }
+        
+        .menu-icon.open .line:first-child {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .menu-icon.open .line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-icon.open .line:last-child {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Mobile Overlay Styles (Existing) */
+        .menu-overlay {
+            height: 100%;
+            width: 0; 
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            background-color: var(--transparent-black);
+            overflow-x: hidden;
+            transition: 0.5s;
+            text-align: center;
+        }
+
+        .menu-overlay .menu-content {
+            position: relative;
+            top: 150px; 
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .menu-overlay .menu-item {
+            padding: 12px;
+            text-decoration: none;
+            font-size: 1.8rem;
+            color: var(--secondary-text);
+            display: block;
+            transition: 0.3s;
+            font-weight: 400; 
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: var(--font-title); 
+        }
+
+        .menu-overlay .menu-item:hover {
+            color: #d1d1d1;
+        }
+
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .submenu-item {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: var(--secondary-text);
+            display: block;
+            font-weight: 300;
+            text-transform: uppercase;
+            font-family: var(--font-title);
+        }
+
+        /* Desktop Navigation (Existing) */
+        @media (min-width: 992px) {
+            .menu-icon {
+                display: none;
+            }
+
+            .menu-overlay {
+                width: auto !important; 
+                height: auto;
+                position: static;
+                background-color: transparent;
+                overflow: visible;
+                display: flex;
+                align-items: center;
+                z-index: 50;
+            }
+
+            .menu-overlay .menu-content {
+                position: static;
+                top: auto;
+                width: auto;
+                margin-top: 0;
+                display: flex;
+                align-items: center;
+                gap: 30px; 
+            }
+
+            .menu-overlay .menu-item {
+                padding: 0;
+                font-size: 0.9rem;
+                color: var(--primary-text);
+                display: block;
+                position: relative;
+                font-weight: 400; 
+            }
+
+            #info-dropdown {
+                cursor: default;
+                position: relative;
+            }
+
+            .submenu {
+                position: absolute;
+                top: 100%; 
+                left: 50%;
+                transform: translateX(-50%);
+                min-width: 200px;
+                background-color: var(--secondary-bg); 
+                z-index: 60;
+                max-height: 0 !important; 
+                visibility: hidden;
+                opacity: 0;
+                transition: opacity 0.3s, visibility 0.3s;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                border-radius: 4px;
+            }
+
+            #info-dropdown:hover .submenu {
+                max-height: 500px !important; 
+                visibility: visible;
+                opacity: 1;
+            }
+
+            .submenu-item {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                color: var(--secondary-text);
+                text-align: center;
+                white-space: nowrap;
+            }
+            
+            .submenu-item:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        /* --- PAGE HERO STYLES (TITLE SECTION) --- */
+        .page-hero {
+            /* padding-top will be set dynamically by JS to clear fixed header + disclaimer */
+            padding-top: 200px; /* Default value for safety before JS runs */
+            padding-bottom: 50px;
+            text-align: center;
+            background-color: var(--primary-bg);
+            position: relative; 
+            /* Ensure smooth transition when JS updates padding */
+            transition: padding-top 0.5s ease-out;
+        }
+
+        .page-hero h1 {
+            font-family: var(--font-title);
+            font-weight: 400;
+            font-size: 2.5rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin: 0;
+            color: var(--primary-text); 
+        }
+        
+        @media (max-width: 600px) {
+            .page-hero h1 {
+                font-size: 1.8rem;
+                letter-spacing: 3px;
+            }
+        }
+
+        /* --- MARQUEE SECTION STYLES --- */
+        .marquee-section {
+            width: 100%;
+            height: 35vh; /* Define the height of the marquee area */
+            overflow: hidden;
+            position: relative;
+            background-color: var(--secondary-bg); /* Add background color for contrast */
+        }
+        
+        @media (min-width: 768px) {
+             .marquee-section {
+                 height: 40vh;
+             }
+        }
+
+        /* MARQUEE WRAPPER - Full-width inside the marquee-section */
+        .marquee-wrapper {
+            width: 100%; 
+            height: 100%; 
+            margin: 0; 
+            box-shadow: none; 
+            border-radius: 0;
+            overflow: hidden;
+        }
+        
+        .marquee-content {
+            display: flex;
+            height: 100%;
+            /* Mobile: 12 slides, each 50vw wide (2 slides visible) -> Total 600vw */
+            width: 600vw; 
+            animation: marquee-loop-mobile 40s linear infinite; 
+            will-change: transform; 
+        }
+
+        @media (min-width: 768px) {
+            .marquee-content {
+                /* Desktop: 12 slides, each 25vw wide (4 slides visible) -> Total 300vw */
+                width: 300vw; 
+                animation: marquee-loop-desktop 40s linear infinite;
+            }
+        }
+
+        /* Pause the marquee on hover */
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+
+        .slide {
+            /* Mobile: 2 slides visible, thus each slide is 50vw */
+            width: 50vw; 
+            height: 100%; 
+            flex-shrink: 0; 
+        }
+        
+        @media (min-width: 768px) {
+            .slide {
+                /* Desktop: 4 slides visible, thus each slide is 25vw */
+                width: 25vw; 
+            }
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+        }
+        
+        /* Keyframes for continuous loop 
+           (Mobile: Move width of 6 slides: 6 * 50vw = 300vw) */
+        @keyframes marquee-loop-mobile {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-300vw); 
+            }
+        }
+
+        /* Keyframes for continuous loop 
+           (Desktop: Move width of 6 slides: 6 * 25vw = 150vw) */
+        @keyframes marquee-loop-desktop {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-150vw); 
+            }
+        }
+        
+        /* --- APPLICATION INFO SECTION STYLES (UPDATED) --- */
+        .application-info {
+            padding: 60px 5%;
+            background-color: var(--primary-bg); /* White background */
+            text-align: center;
+        }
+
+        .application-info .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        /* H2 Title Style (e.g., ARE YOU READY?, APPLICATION FORM) */
+        .application-info h2 {
+            font-family: var(--font-title);
+            font-weight: 400; /* Not bolded */
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: var(--primary-text); /* Black color */
+            text-transform: uppercase;
+        }
+
+        /* H3 Title Style (e.g., Required Images and Submission Protocol) */
+        .application-info h3 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-family: var(--font-title);
+            font-weight: 400; /* Not bolded */
+            color: var(--primary-text);
+        }
+
+        .application-info p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .application-info ul {
+            list-style-type: none; /* Removing default list style */
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        .application-info li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .application-info li::before {
+            content: '✓'; 
+            color: var(--accent-color); 
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* New Gallery Styles */
+        .gallery-title {
+            font-family: var(--font-title);
+            font-weight: 400; /* Not bolded */
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+        }
+
+        .image-row {
+            display: flex;
+            /* Allow horizontal scrolling on small screens */
+            overflow-x: scroll;
+            /* Important for full horizontal scroll on mobile */
+            -webkit-overflow-scrolling: touch; 
+            padding-bottom: 15px; /* Space for scroll shadow if any */
+            gap: 10px; /* Space between images */
+        }
+        
+        /* Hide scrollbar for aesthetics */
+        .image-row::-webkit-scrollbar {
+            display: none;
+        }
+        .image-row {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* --- STYLING FIX: Further Reduced height and confirmed no border-radius --- */
+        .image-container {
+            flex: 0 0 85%; /* On mobile (default), each image takes 85% of viewport width */
+            height: 300px; /* Reduced height for smaller display on mobile */
+            border-radius: 0; /* CONFIRMED: NO ROUNDED CORNERS */
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures images are cropped, not stretched/squashed */
+            display: block;
+        }
+
+        @media (min-width: 600px) {
+            .application-info {
+                padding: 40px 5%;
+            }
+            .application-info h2 {
+                font-size: 1.5rem;
+            }
+            .application-info h3 {
+                font-size: 1.2rem;
+            }
+            .image-container {
+                flex: 0 0 calc(25% - 8px); /* Tablet/Desktop: 4 images visible, each 25% width minus gap */
+                height: 400px; /* Reduced height for desktop */
+            }
+            .image-row {
+                overflow-x: hidden; /* No scrolling needed on desktop */
+                justify-content: center; /* Center images on wider screens */
+                padding: 0;
+            }
+        }
+        
+        /* --- Form Styles --- */
+        .application-form-container {
+            padding: 30px 0;
+            margin-top: 30px;
+            border-top: 1px solid #ccc;
+        }
+
+        .form-group-grid {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* 2 columns on desktop, 1 column on mobile */
+        @media (min-width: 768px) {
+            .form-group-grid.two-col {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-field label {
+            font-weight: 400;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        .form-field input[type="text"],
+        .form-field input[type="email"],
+        .form-field input[type="tel"],
+        .form-field input[type="date"],
+        .form-field input[type="number"],
+        .form-field input[type="url"],
+        .form-field select {
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            width: 100%;
+            box-sizing: border-box;
+            font-family: var(--font-body);
+        }
+
+        .form-field input:focus,
+        .form-field select:focus {
+            border-color: var(--secondary-bg);
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+            outline: none;
+        }
+
+        .form-section-title {
+            font-family: var(--font-title);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--secondary-bg);
+            text-align: left;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+        }
+        
+        /* Custom Styles for Radio Group */
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .radio-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 400;
+            font-size: 1rem;
+        }
+        .radio-option input[type="radio"] {
+            margin-right: 8px;
+            /* Hide default radio, use custom styling if needed */
+        }
+        
+        /* --- FIX: Agent Code Styling --- */
+        .agent-code-container {
+            margin-top: 20px;
+            border: none; /* Removed border */
+            padding: 0; /* Removed padding */
+            border-radius: 0;
+            background-color: var(--primary-bg); /* Changed to primary background */
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .error-message {
+            color: var(--error-color);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            min-height: 18px; /* reserve space to prevent layout shift */
+        }
+        
+        /* Custom Styles for Acknowledgement */
+        .acknowledgement {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+        .ack-checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 15px;
+        }
+        .ack-checkbox-container input {
+            margin-right: 10px;
+            margin-top: 3px;
+            min-width: 18px;
+            min-height: 18px;
+        }
+        .ack-checkbox-container label {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #333;
+        }
+
+
+        .submit-button {
+            background-color: var(--secondary-bg);
+            color: var(--secondary-text);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-family: var(--font-title);
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-button:hover {
+            background-color: #333;
+        }
+
+        /* Netlify Honeypot hidden field */
+        .hidden-field {
+            display: none;
+        }
+        
+        /* --- DISCLAIMER SECTION STYLES (Existing) --- */
+        .disclaimer-section {
+            position: fixed; 
+            top: 100px; 
+            left: 0;
+            width: 100%; 
+            
+            background-color: var(--secondary-bg); 
+            color: var(--secondary-text); 
+            
+            border: none;
+            border-radius: 0; 
+            
+            /* OPTIMIZED MOBILE PADDING */
+            padding: 10px 10px; 
+            margin: 0; 
+            max-width: none; 
+            
+            line-height: 1.4; 
+            font-size: 0.8rem; 
+            z-index: 49; 
+
+            text-align: center; 
+
+            /* Added max-height to transition for smooth collapse */
+            transition: opacity 0.5s ease-out, max-height 0.5s ease-out, padding 0.5s ease-out;
+            overflow: hidden; 
+            box-sizing: border-box; 
+        }
+
+        .disclaimer-text-content {
+            text-align: left;
+            max-width: 800px; 
+            /* OPTIMIZED MOBILE MARGIN */
+            margin: 0 auto 5px auto; 
+        }
+        
+        .disclaimer-title {
+            font-family: var(--font-title);
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            text-align: center; 
+            color: red; 
+            margin-bottom: 5px; 
+            text-transform: uppercase;
+        }
+
+        .disclaimer-section p {
+            margin: 0.3rem 0; 
+            color: var(--secondary-text); 
+        }
+        
+        .disclaimer-section strong {
+            font-weight: 700;
+            color: red; 
+        }
+        
+        .disclaimer-section a {
+            color: #ADD8E6; 
+            text-decoration: underline;
+        }
+
+        .disclaimer-close {
+            position: static; 
+            /* OPTIMIZED MOBILE MARGIN */
+            margin: 5px auto 0 auto; 
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 30px; 
+            height: 30px; 
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            
+            cursor: pointer;
+            color: var(--secondary-text); 
+            opacity: 1;
+            transition: opacity 0.2s, background-color 0.2s;
+            padding: 0; 
+        }
+
+        .disclaimer-close:hover {
+            opacity: 0.9;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Desktop Disclaimer styles revert some mobile changes for readability */
+        @media (min-width: 768px) {
+            .disclaimer-section {
+                padding: 20px 30px;
+                font-size: 0.9rem;
+            }
+            .disclaimer-title {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+            .disclaimer-section p {
+                margin: 0.5rem 0;
+            }
+            .disclaimer-close {
+                width: 40px;
+                height: 40px;
+                margin: 15px auto 0 auto;
+            }
+        }
+        
+        /* Footer Styles (Existing) */
+        .main-footer {
+            background-color: var(--secondary-bg);
+            color: var(--secondary-text);
+            padding: 40px 10%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .footer-section {
+            margin-bottom: 2rem;
+            width: 100%; 
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-weight: 300;
+            font-family: var(--font-heading); 
+        }
+
+        .footer-section p, .footer-section a {
+            margin: 5px 0;
+            font-weight: 300;
+            text-decoration: none;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            gap: 10px;
+        }
+
+        .footer-row {
+            margin-top: 0.5rem;
+            width: 100%; 
+        }
+        
+        @media (min-width: 768px) {
+            .main-footer {
+                flex-direction: row; 
+                flex-wrap: wrap; 
+                justify-content: space-around;
+                align-items: flex-start; 
+                text-align: left; 
+                padding: 60px 5%;
+            }
+
+            .footer-section {
+                flex: 1 1 30%; 
+                margin-bottom: 0;
+                padding: 0 15px;
+                max-width: 350px; 
+            }
+            
+            .footer-section .contact-row {
+                justify-content: flex-start;
+            }
+
+            .footer-row {
+                flex-basis: 100%; 
+                text-align: center;
+                margin-top: 30px;
+                padding-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-logo">
+            <a href="scouted.html">
+                <!-- Using placeholder image name as path was missing -->
+                <img src="scout.png" alt="NTA Models Scouting Logo">
+            </a>
+        </div>
+        
+        <div class="menu-icon" id="menu-icon">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <div id="menu-overlay" class="menu-overlay">
+            <div class="menu-content">
+                <a href="index.html" class="menu-item">HOME</a>
+                
+                <div class="menu-item" id="info-dropdown">INFO
+                    <div class="submenu" id="info-submenu">
+                        <a href="about.html" class="submenu-item">ABOUT</a> 
+                        <a href="policy.html" class="submenu-item">POLICY</a>
+                        <a href="terms.html" class="submenu-item">TERMS & CONDITIONS</a>
+                        <a href="contact.html" class="submenu-item">CONTACT</a>
+                    </div>
+                </div>
+                
+                <a href="scouted.html" class="menu-item">SCOUTED</a>
+                <a href="getscouted.html" class="menu-item" style="font-weight: 700;">GET SCOUTED</a>
+                <a href="faqs.html" class="menu-item">FAQS</a>
+                <a href="agencies.html" class="menu-item">associated agencies</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- DISCLAIMER SECTION (FIXED POSITION) -->
+    <section id="disclaimer" class="disclaimer-section">
+        <h2 class="disclaimer-title">IMPORTANT NOTICE</h2>
+        
+        <div class="disclaimer-text-content">
+            <p>The scouting service provided by NTA Models SA is free for all applicants initially. Our goal is to help you get signed with a professional modeling agency.</p>
+            <p>We charge a <strong>R19.00 (ZAR)</strong> administrative fee to process applications from models who are not scouted directly by our agents and are representing themselves independently. This is a once-off, non-refundable charge that helps us process applications efficiently and invest time in models who are serious.</p>
+            <p><strong>Important Payment Note:</strong> This admin fee is only paid on our official website domain: <a href="https://scout.ntamodels.co.za" target="_blank">scout.ntamodels.co.za</a>. We will never provide you with banking details to deposit money, and we do not provide links to external websites for payment.</p>
+            <p>If you are successfully signed with an agency through our scouting efforts, you agree to pay NTA Models SA a 10% commission fee from the first two successful bookings you receive with that agency. This fee is paid directly to us and is separate from any commissions or fees the agency may charge you. This allows us to continue our scouting efforts and support new talent.</p>
+            <p>To report any fraud or confirm agent identity please email: <a href="mailto:nta.models@ntamodels.co.za">nta.models@ntamodels.co.za</a></p>
+        </div>
+
+        <button id="disclaimer-close" class="disclaimer-close" aria-label="Close Disclaimer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+    </section>
+
+    <!-- PAGE TITLE SECTION -->
+    <section class="page-hero">
+        <h1>GET SCOUTED</h1>
+    </section>
+    
+    <!-- MARQUEE SECTION (FULL WIDTH) -->
+    <section class="marquee-section">
+        <div class="marquee-wrapper">
+            <div class="marquee-content" id="marquee-content">
+                <!-- Original set of 6 slides -->
+                <div class="slide"><img src="assets/m1.jpg" alt="Scouted Model Image 1" onerror="this.onerror=null;this.src='https://placehold.co/500x500/000000/FFFFFF?text=Model+1'"></div>
+                <div class="slide"><img src="assets/nta6.jpg" alt="Scouted Model Image 2" onerror="this.onerror=null;this.src='https://placehold.co/500x500/000000/FFFFFF?text=Model+2'"></div>
+                <div class="slide"><img src="assets/nta7.jpg" alt="Scouted Model Image 3" onerror="this.onerror=null;this.src='https://placehold.co/500x500/000000/FFFFFF?text=Model+3'"></div>
+                <div class="slide"><img src="assets/nta8.jpg" alt="Scouted Model Image 4" onerror="this.onerror=null;this.src='https://placehold.co/500x500/000000/FFFFFF?text=Model+4'"></div>
+                <div class="slide"><img src="assets/nta9.jpg" alt="Scouted Model Image 5" onerror="this.onerror=null;this.src='https://placehold.co/500x500/000000/FFFFFF?text=Model+5'"></div>
+                <div class="slide"><img src="assets/nta10.jpg" alt="Scouted Model Image 6" onerror="this.onerror=null;this.src='https://placehold.co/500x500/000000/FFFFFF?text=Model+6'"></div>
+                
+                <!-- Duplicate set for seamless looping (Crucial for marquee effect) -->
+                <div class="slide"><img src="assets/m1.jpg" alt="Scouted Model Image 7" onerror="this.onerror=null;this.src='https://placehold.co/500x500/000000/FFFFFF?text=Model+7'"></div>
+                <div class="slide"><img src="assets/nta6.jpg" alt="Scouted Model Image 8" onerror="this.onerror=null;this.src='https://placehold.co/500x500/000000/FFFFFF?text=Model+8'"></div>
+                <div class="slide"><img src="assets/nta7.jpg" alt="Scouted Model Image 9" onerror="this.onerror=null;this.src='https://placehold.co/500x500/000000/FFFFFF?text=Model+9'"></div>
+                <div class="slide"><img src="assets/nta8.jpg" alt="Scouted Model Image 10" onerror="this.onerror=null;this.src='https://placehold.co/500x500/000000/FFFFFF?text=Model+10'"></div>
+                <div class="slide"><img src="assets/nta9.jpg" alt="Scouted Model Image 11" onerror="this.onerror=null;this.src='https://placehold.co/500x500/000000/FFFFFF?text=Model+11'"></div>
+                <div class="slide"><img src="assets/nta10.jpg" alt="Scouted Model Image 12" onerror="this.onerror=null;this.src='https://placehold.co/500x500/000000/FFFFFF?text=Model+12'"></div>
+            </div>
+        </div>
+    </section>
+    <!-- END MARQUEE SECTION -->
+
+    <!-- APPLICATION INFO SECTION -->
+    <section class="application-info">
+        <div class="content-wrapper">
+            
+            <!-- ARE YOU READY? -->
+            <h2 style="color: black; font-weight: 400;">ARE YOU READY?</h2>
+            
+            <p>This is your chance. We are constantly searching for new faces to represent. If you believe you have what it takes to be a professional model, please fill out the form below. Our scouts will review every application, and if we see potential, we will be in touch.</p>
+
+            <!-- REQUIREMENTS -->
+            <h3>Required Images and Submission Protocol</h3>
+            
+            <p>To ensure we can assess your potential accurately, please adhere strictly to the following requirements:</p>
+            
+            <ul>
+                <li>Submit four clear, unedited, and recent photos.</li>
+                <li>Photos should be taken in natural light against a plain, uncluttered background.</li>
+                <li>Your face must be clearly visible, with no heavy makeup, filters, sunglasses, or hats.</li>
+                <li>We do not accept professional photos at this stage; we need to see your natural look.</li>
+                <!-- UPDATED: Intro videos are now required -->
+                <li>All required images and accompanying intro videos must be uploaded to a public Google Drive folder or hosted using a publicly accessible link (self-hosted or otherwise). We must be able to view them without signing in.</li>
+                <li>The administrative fee of <strong>R19.00 (ZAR)</strong> applies to applications submitted without an NTA Agent Code.</li>
+                <li>All applicants under the age of 18 must secure explicit written consent from a parent or legal guardian before submitting their application.</li>
+            </ul>
+            
+            <!-- NEW GALLERY SECTION -->
+            <h3 class="gallery-title" style="font-weight: 400;">EXAMPLES OF PHOTOS TO SEND</h3>
+            
+            <div class="image-row">
+                <div class="image-container">
+                    <img src="assets/h1.jpg" alt="Example Headshot 1" onerror="this.onerror=null;this.src='https://placehold.co/800x1200/CCCCCC/333333?text=Example+1+Headshot'">
+                </div>
+                <div class="image-container">
+                    <img src="assets/h2.jpg" alt="Example Full Body 2" onerror="this.onerror=null;this.src='https://placehold.co/800x1200/CCCCCC/333333?text=Example+2+Full+Body'">
+                </div>
+                <div class="image-container">
+                    <img src="assets/h3.jpg" alt="Example Profile 3" onerror="this.onerror=null;this.src='https://placehold.co/800x1200/CCCCCC/333333?text=Example+3+Profile'">
+                </div>
+                <div class="image-container">
+                    <img src="assets/h4.jpg" alt="Example Candid 4" onerror="this.onerror=null;this.src='https://placehold.co/800x1200/CCCCCC/333333?text=Example+4+Candid'">
+                </div>
+            </div>
+            <!-- END NEW GALLERY SECTION -->
+
+            <!-- APPLICATION FORM TITLE -->
+            <h2 style="margin-top: 60px; color: black; font-weight: 400;">APPLICATION FORM</h2>
+            
+            <!-- Status Message Container (New) -->
+            <div id="status-message-container" style="padding: 15px; margin-bottom: 20px; border-radius: 4px; display: none; text-align: center; font-weight: 700;"></div>
+
+            <div class="application-form-container">
+                <!-- NETLIFY FORM CONFIGURATION -->
+                <form id="scouting-form" name="scouting_application" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    
+                    <!-- Netlify Hidden Field for Bot Detection (Honeypot) -->
+                    <p class="hidden-field">
+                        <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+                    </p>
+                    
+                    <!-- FIX: Explicitly tells Netlify which form to handle -->
+                    <input type="hidden" name="form-name" value="scouting_application" />
+
+                    <!-- Agent Status Question -->
+                    <h4 class="form-section-title">Agent Status</h4>
+                    <div class="form-field">
+                        <label>Are you scouted by an agent? *</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="scouted-yes" name="scouted_by_agent" value="Yes" required>
+                                <label for="scouted-yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="scouted-no" name="scouted_by_agent" value="No" required>
+                                <label for="scouted-no">No (R19.00 admin fee applies)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Agent Code Section (Conditionally Visible) -->
+                    <div id="agent-code-section" class="agent-code-container" style="display: none;">
+                        <!-- FIX: Removed descriptive header and text -->
+                        <div class="form-field" style="margin-top: 10px;">
+                            <label for="agent_code">Agent Code</label>
+                            <!-- FIX: Removed placeholder text -->
+                            <input type="text" id="agent_code" name="agent_code" maxlength="7">
+                            <div id="agent-code-error" class="error-message"></div>
+                        </div>
+                    </div>
+
+
+                    <!-- Personal Information -->
+                    <h4 class="form-section-title">Personal Information</h4>
+                    <div class="form-group-grid two-col">
+                        <div class="form-field">
+                            <label for="name">First Name(s) *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="surname">Surname *</label>
+                            <input type="text" id="surname" name="surname" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group-grid two-col">
+                        <div class="form-field">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="e.g., +27 12 345 6789" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group-grid two-col">
+                        <div class="form-field">
+                            <label for="dob">Date of Birth *</label>
+                            <input type="date" id="dob" name="dob" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="gender">Gender *</label>
+                            <select id="gender" name="gender" required>
+                                <option value="" disabled selected>Select Gender Identity</option>
+                                <option value="MALE">MALE</option>
+                                <option value="FEMALE">FEMALE</option>
+                                <option value="NON-BINARY">NON-BINARY</option>
+                                <option value="Prefer Not To Say">Prefer Not To Say</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group-grid two-col">
+                        <div class="form-field">
+                            <label for="country">Country *</label>
+                            <input type="text" id="country" name="country" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="city">City *</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group-grid two-col">
+                        <div class="form-field">
+                            <label for="zipcode">Zip Code</label>
+                            <input type="text" id="zipcode" name="zipcode">
+                        </div>
+                        <div class="form-field">
+                            <label for="ethnicity">Ethnicity *</label>
+                            <input type="text" id="ethnicity" name="ethnicity" required>
+                        </div>
+                    </div>
+
+
+                    <!-- Statistics -->
+                    <h4 class="form-section-title">Statistics</h4>
+                    <div class="form-group-grid two-col">
+                        <div class="form-field">
+                            <label for="height">Height (cm) *</label>
+                            <input type="number" id="height" name="height_cm" placeholder="e.g., 175 (in centimeters)" required min="100" max="250">
+                        </div>
+                        <div class="form-field">
+                            <label for="waist">Waist (cm/inches) *</label>
+                            <input type="text" id="waist" name="waist" placeholder="e.g., 60cm or 24in" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group-grid two-col">
+                        <div class="form-field">
+                            <label for="hips">Hips (cm/inches) *</label>
+                            <input type="text" id="hips" name="hips" placeholder="e.g., 90cm or 35in" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="shoe">Shoe Size (UK/US/EU) *</label>
+                            <input type="text" id="shoe" name="shoe_size" placeholder="e.g., UK 6 / US 8 / EU 39" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group-grid two-col">
+                        <div class="form-field">
+                            <label for="eyes">Eye Color *</label>
+                            <input type="text" id="eyes" name="eye_color" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="hair">Hair Color *</label>
+                            <input type="text" id="hair" name="hair_color" required>
+                        </div>
+                    </div>
+                    
+                    <!-- Submission/Portfolio Link -->
+                    <h4 class="form-section-title">Portfolio Link</h4>
+                     <div class="form-field">
+                        <!-- UPDATED: Label includes intro videos -->
+                        <label for="portfolio_link">Link to Photos & Intro Videos (Google Drive, Dropbox, etc.) *</label>
+                        <input type="url" id="portfolio_link" name="portfolio_link" placeholder="Ensure the link is publicly accessible (no sign-in required)" required>
+                    </div>
+
+                    <!-- Acknowledgement Section -->
+                    <div class="acknowledgement">
+                        <h4 style="margin: 0; font-size: 1rem; font-weight: 700; color: var(--secondary-bg);">Acknowledgement of Terms</h4>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Please read and acknowledge the following statements before submitting your application:</p>
+                        
+                        <div class="ack-checkbox-container">
+                            <input type="checkbox" id="ack-consent" name="ack_consent" required>
+                            <label for="ack-consent">I confirm that I am over 18 or have secured explicit written consent from a parent/guardian.</label>
+                        </div>
+                        <div class="ack-checkbox-container">
+                            <input type="checkbox" id="ack-terms" name="ack_terms" required>
+                            <label for="ack-terms">I acknowledge the <a href="terms.html" target="_blank" style="color: red; text-decoration: underline;">Terms & Conditions</a>, including the non-refundable R19.00 admin fee for non-scouted applicants.</label>
+                        </div>
+                    </div>
+
+                    <p style="text-align: center; font-size: 0.9rem; margin-top: 30px; color: red;">
+                        Clicking 'Submit' will either process your application immediately or redirect you to PayFast for the required R19.00 administrative fee.
+                    </p>
+                    
+                    <button type="submit" class="submit-button">Submit Application</button>
+                </form>
+            </div>
+
+
+        </div>
+    </section>
+    <!-- END APPLICATION INFO SECTION -->
+    
+    <footer class="main-footer">
+        <div class="footer-section">
+            <h3>LOCATION</h3>
+            <p>Cape Town, South Africa</p>
+        </div>
+        <div class="footer-section">
+            <h3>OPERATING HOURS</h3>
+            <p>Monday - Friday: 10am - 7pm</p>
+            <p>Saturday: 11am - 7pm</p>
+            <p>Sunday: Closed</p>
+        </div>
+        <div class="footer-section">
+            <h3>CONTACT</h3>
+            <div class="contact-row">
+                <a href="https://www.instagram.com/ntamodelssa" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
+                </a>
+                <span class="separator">|</span>
+                <span>+27 78 009 3318</span>
+            </div>
+            <p style="margin-top: 10px;">models@ntamodels.co.za</p>
+        </div>
+        <div class="footer-row">
+            <p>Copyright © 2025 NTA Scouting & Placement Agency. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuIcon = document.getElementById('menu-icon');
+            const menuOverlay = document.getElementById('menu-overlay');
+            const infoDropdown = document.getElementById('info-dropdown');
+            const infoSubmenu = document.getElementById('info-submenu');
+            const disclaimer = document.getElementById('disclaimer');
+            const disclaimerCloseBtn = document.getElementById('disclaimer-close');
+            const body = document.body;
+            
+            const isDesktop = () => window.matchMedia("(min-width: 992px)").matches;
+            
+            const scoutingForm = document.getElementById('scouting-form');
+            const scoutedYes = document.getElementById('scouted-yes');
+            const scoutedNo = document.getElementById('scouted-no');
+            const agentCodeSection = document.getElementById('agent-code-section');
+            const agentCodeInput = document.getElementById('agent_code');
+            const agentCodeError = document.getElementById('agent-code-error');
+            
+            // --- Define hardcoded color values used in JS ---
+            const ERROR_COLOR = '#dc2626'; // Matches var(--error-color)
+            const SUCCESS_COLOR = 'green';
+            
+            // --- Disclaimer Logic Functions (Refactored for robustness) ---
+            const headerHeight = 100;
+
+            function getDisclaimerHeight() {
+                // If the element has max-height: 0px or display: none, it's considered closed/collapsed.
+                if (disclaimer.style.maxHeight === '0px' || disclaimer.style.display === 'none') {
+                    return 0;
+                }
+                // Otherwise, return the actual height.
+                return disclaimer.offsetHeight; 
+            }
+
+            function updatePageHeroPadding() {
+                const pageHero = document.querySelector('.page-hero');
+                const dynamicHeight = getDisclaimerHeight();
+                
+                if (pageHero) {
+                    // 100px (Header) + dynamicHeight (Disclaimer) + 50px (Base Margin)
+                    // If disclaimer is closed (dynamicHeight = 0), we use the base margin of 50px.
+                    // If open, we use the header + disclaimer height + 30px margin for separation.
+                    const extraMargin = dynamicHeight > 0 ? 30 : 50;
+                    pageHero.style.paddingTop = (headerHeight + dynamicHeight + extraMargin) + 'px';
+                }
+            }
+
+            // Initialization logic for the disclaimer
+            if (disclaimerCloseBtn && disclaimer) {
+                // Initial state setup: Ensure it's visible and calculate initial height
+                disclaimer.style.display = 'block';
+                disclaimer.style.opacity = '1';
+                // Must wait for DOM to render the initial element before measuring scrollHeight
+                window.addEventListener('load', () => {
+                    const initialHeight = disclaimer.scrollHeight;
+                    disclaimer.style.maxHeight = initialHeight + 'px';
+                    updatePageHeroPadding();
+                });
+                
+                // Event listeners for layout changes
+                window.addEventListener('resize', updatePageHeroPadding);
+                
+                // Event listener for closing the disclaimer (FIXED)
+                disclaimerCloseBtn.addEventListener('click', () => {
+                    // 1. Trigger the collapse transition immediately
+                    disclaimer.style.opacity = '0';
+                    disclaimer.style.maxHeight = '0px'; 
+                    
+                    // 2. Recalculate padding immediately
+                    updatePageHeroPadding();
+
+                    // 3. Set display: none after transition (0.5s CSS transition time)
+                    setTimeout(() => {
+                        disclaimer.style.display = 'none';
+                        // Re-run padding update for cleanliness, although it should already be 0
+                        updatePageHeroPadding();
+                    }, 500); 
+                });
+            }
+            // Ensure initial padding calculation runs runs if the window.onload event has passed
+            updatePageHeroPadding(); 
+
+            // --- Agent Code Validation Function (Internal logic kept, but display removed) ---
+            /**
+             * Validates the agent code against the rule: 3 capital, 1 lower, 1 special, 2 number, total 7 characters.
+             * Special characters allowed: !@#$%^&*.
+             */
+            function validateAgentCode(code) {
+                if (code.length !== 7) return false;
+                
+                // 1. Count character types
+                let caps = (code.match(/[A-Z]/g) || []).length;
+                let lowers = (code.match(/[a-z]/g) || []).length;
+                let specials = (code.match(/[!@#$%^&*]/g) || []).length;
+                let nums = (code.match(/[0-9]/g) || []).length;
+                
+                // 2. Check for exact counts
+                const exactCountsMatch = caps === 3 && lowers === 1 && specials === 1 && nums === 2;
+
+                // 3. Check for unauthorized characters (must only contain the allowed 4 groups)
+                const totalAllowedChars = caps + lowers + specials + nums;
+                const isOnlyAllowedChars = totalAllowedChars === 7;
+                
+                return exactCountsMatch && isOnlyAllowedChars;
+            }
+
+            // --- Conditional Display Logic ---
+            function handleScoutedChange() {
+                if (scoutedYes.checked) {
+                    agentCodeSection.style.display = 'block';
+                    agentCodeInput.setAttribute('required', 'required');
+                } else {
+                    agentCodeSection.style.display = 'none';
+                    agentCodeInput.removeAttribute('required');
+                    agentCodeInput.value = ''; // Clear value when hidden
+                    agentCodeError.textContent = ''; // Clear error if hidden
+                }
+            }
+
+            scoutedYes.addEventListener('change', handleScoutedChange);
+            scoutedNo.addEventListener('change', handleScoutedChange);
+
+            // Live validation for Agent Code (Error message updated to be generic)
+            agentCodeInput.addEventListener('input', () => {
+                const code = agentCodeInput.value;
+                if (code.length > 0 && code.length < 7) {
+                    agentCodeError.textContent = 'Code must be exactly 7 characters.';
+                    agentCodeError.style.color = ERROR_COLOR; 
+                } else if (code.length === 7) {
+                    if (validateAgentCode(code)) {
+                        agentCodeError.textContent = 'Agent Code Accepted.';
+                        agentCodeError.style.color = SUCCESS_COLOR; 
+                    } else {
+                        // FIX: Changed error message to be less prescriptive on required format
+                        agentCodeError.textContent = 'Invalid Agent Code format. Please check with your agent.';
+                        agentCodeError.style.color = ERROR_COLOR; 
+                    }
+                } else {
+                    agentCodeError.textContent = '';
+                }
+            });
+
+            // --- Form Submission Handler ---
+            scoutingForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                agentCodeError.textContent = ''; // Clear any previous errors
+                
+                const selectedOption = document.querySelector('input[name="scouted_by_agent"]:checked');
+                if (!selectedOption) {
+                    // Use a message box instead of alert()
+                    document.getElementById('scouting-form').scrollIntoView({ behavior: 'smooth' });
+                    agentCodeError.textContent = 'Please select whether you were scouted by an agent.';
+                    return;
+                }
+                const isScouted = selectedOption.value;
+                
+                // 1. Validate if 'Yes' is selected
+                if (isScouted === 'Yes') {
+                    const agentCode = agentCodeInput.value;
+                    if (!validateAgentCode(agentCode)) {
+                        agentCodeError.textContent = 'Please enter a valid 7-character Agent Code.';
+                        agentCodeError.style.color = ERROR_COLOR; 
+                        return;
+                    }
+                    // If validated, proceed with Netlify submission
+                    // IMPORTANT: We use the native form submission here to trigger Netlify's processing
+                    e.target.removeEventListener('submit', arguments.callee); // Remove this listener to allow native submission
+                    e.target.submit();
+                    return;
+                }
+
+                // 2. Process PayFast if 'No' is selected
+                if (isScouted === 'No') {
+                    // Collect necessary fields for the PayFast form
+                    const applicantEmail = document.getElementById('email').value;
+                    const applicantName = document.getElementById('name').value;
+                    
+                    // --- PayFast Configuration (FIXED PAYFAST ERRORS) ---
+                    const merchant_id = '30920829';
+                    const merchant_key = '0d32219d9b628'; // PLACEHOLDER: USER MUST REPLACE THIS with your actual PayFast Merchant Key!
+                    const amount = '19.00';
+                    const item_name = 'NTA Application Admin Fee';
+                    
+                    // FIX: Using the user's specified domain: scout.ntamodels.co.za
+                    const ACTUAL_DOMAIN = 'https://scout.ntamodels.co.za'; 
+
+                    const pfForm = document.createElement('form');
+                    pfForm.method = 'post';
+                    pfForm.action = 'https://www.payfast.co.za/eng/process';
+                    
+                    const payFastFields = {
+                        merchant_id: merchant_id,
+                        merchant_key: merchant_key, 
+                        amount: amount,
+                        item_name: item_name,
+                        // UPDATED: Return and cancel URLs point to the current page with status parameters
+                        return_url: ACTUAL_DOMAIN + '/getscouted.html?status=success',
+                        cancel_url: ACTUAL_DOMAIN + '/getscouted.html?status=cancelled',
+                        notify_url: ACTUAL_DOMAIN + '/payfast-notify', // Server-side endpoint
+                        email_address: applicantEmail,
+                        name_first: applicantName,
+                        // Custom data field to store Netlify form data temporarily, if needed later
+                        custom_str1: 'scouting_application'
+                    };
+                    
+                    for (const key in payFastFields) {
+                        const input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.name = key;
+                        input.value = payFastFields[key];
+                        pfForm.appendChild(input);
+                    }
+                    
+                    // Append the dynamic form to the body and submit it
+                    document.body.appendChild(pfForm);
+                    pfForm.submit();
+                    
+                    // Prevent Netlify submission (already done by e.preventDefault() but good practice)
+                    return;
+                }
+            });
+
+            // --- Menu Logic ---
+            if (menuIcon && menuOverlay) {
+                 menuIcon.addEventListener('click', () => {
+                     if (!isDesktop()) {
+                         if (menuOverlay.style.width === '100%') {
+                             closeNav();
+                         } else {
+                             openNav();
+                         }
+                     }
+                 });
+            }
+
+            infoDropdown.addEventListener('click', (e) => {
+                if (!isDesktop()) {
+                    e.preventDefault(); 
+                    if (infoSubmenu.style.maxHeight) {
+                        infoSubmenu.style.maxHeight = null;
+                    } else {
+                        infoSubmenu.style.maxHeight = infoSubmenu.scrollHeight + 'px';
+                    }
+                }
+            });
+
+            function openNav() {
+                menuOverlay.style.width = '100%';
+                menuIcon.classList.add('open');
+                body.style.overflow = 'hidden';
+            }
+
+            function closeNav() {
+                menuOverlay.style.width = '0%';
+                menuIcon.classList.remove('open');
+                body.style.overflow = 'auto';
+                infoSubmenu.style.maxHeight = null; 
+            }
+            
+            // Ensure initial check runs if user selected an option before DOMContentLoaded
+            if (scoutedYes.checked || scoutedNo.checked) {
+                handleScoutedChange();
+            }
+
+            // --- Status Message Display Logic (New) ---
+            function displayStatusMessage() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const status = urlParams.get('status');
+                const messageContainer = document.getElementById('status-message-container');
+
+                if (!messageContainer) return;
+
+                if (status === 'success') {
+                    messageContainer.style.display = 'block';
+                    messageContainer.style.backgroundColor = '#d1e7dd'; // Light green
+                    messageContainer.style.color = '#0f5132'; // Dark green text
+                    messageContainer.textContent = 'Payment successful! Your application is now being processed.';
+                    // Clear the status from the URL history to keep the URL clean
+                    history.replaceState(null, '', window.location.pathname);
+                } else if (status === 'cancelled') {
+                    messageContainer.style.display = 'block';
+                    messageContainer.style.backgroundColor = '#f8d7da'; // Light red/pink
+                    messageContainer.style.color = '#842029'; // Dark red text
+                    messageContainer.textContent = 'Payment cancelled. Please complete the R19.00 admin fee to submit your application.';
+                    history.replaceState(null, '', window.location.pathname);
+                }
+            }
+
+            // Run status check on load
+            displayStatusMessage();
+        });
+    </script>
+</body>
+</html>

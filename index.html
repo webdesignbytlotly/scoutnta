@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | NTA Models Scouting</title>
+    
+    <!-- STRONG SEO Meta Tags Added -->
+    <meta name="description" content="NTA Models Scouting: Discover the next generation of global talent. View portfolios of scouted models or submit your application to get scouted today. Placement for global campaigns, editorials, and runways.">
+    <meta name="keywords" content="NTA Models, model scouting, model placement agency, South African models, global model search, get scouted, new talent, fashion models, modeling portfolios">
+    <meta name="author" content="NTA Scouting & Placement Agency">
+    <!-- End SEO Meta Tags -->
+
+    <!-- Importing required fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@300;400&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #FFFFFF;
+            --primary-text: #000000;
+            --secondary-bg: #000000;
+            --secondary-text: #FFFFFF;
+            --transparent-black: rgba(0, 0, 0, 0.95); /* Slightly darker for better contrast */
+            --font-title: 'Montserrat', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 300; /* Playfair Display Thin Light */
+        }
+        
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px; /* Increased header height */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            background-color: var(--primary-bg);
+            z-index: 50;
+            box-sizing: border-box;
+        }
+
+        .header-logo img {
+            height: 70px; /* Increased header logo size */
+            max-width: 100%;
+        }
+
+        /* Apply Montserrat Thin to the logo/title area if it were text,
+           Applying it to the element closest to the logo text */
+        .main-header .header-logo {
+            font-family: var(--font-title);
+            font-weight: 300; /* Montserrat Thin */
+            font-size: 1.5rem;
+        }
+        
+        .header-logo a {
+             /* Remove underline from logo link */
+             text-decoration: none;
+        }
+
+        /* --- Mobile Menu Icon (Hamburger) --- */
+        .menu-icon {
+            cursor: pointer;
+            z-index: 101;
+        }
+
+        .menu-icon .line {
+            width: 30px;
+            height: 2px;
+            background-color: var(--primary-text); /* Black when closed */
+            margin: 6px 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Mobile Close Icon (White on Black Overlay) */
+        .menu-icon.open .line {
+            background-color: var(--secondary-text); /* White when open */
+        }
+        
+        .menu-icon.open .line:first-child {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .menu-icon.open .line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-icon.open .line:last-child {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* --- Mobile Overlay Styles (Default) --- */
+        .menu-overlay {
+            height: 100%;
+            width: 0; /* Closed by default */
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            background-color: var(--transparent-black);
+            overflow-x: hidden;
+            transition: 0.5s;
+            text-align: center;
+        }
+
+        .menu-overlay .menu-content {
+            position: relative;
+            top: 150px; 
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .menu-overlay .menu-item {
+            padding: 12px;
+            text-decoration: none;
+            font-size: 1.8rem;
+            color: var(--secondary-text);
+            display: block;
+            transition: 0.3s;
+            /* Montserrat Medium (400) */
+            font-weight: 400; 
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: var(--font-title); 
+        }
+
+        .menu-overlay .menu-item:hover {
+            color: #d1d1d1;
+        }
+
+        /* Mobile Submenu */
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .submenu-item {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: var(--secondary-text);
+            display: block;
+            font-weight: 300;
+            text-transform: uppercase;
+            font-family: var(--font-title);
+        }
+
+        /* --- Desktop Navigation (Media Query) --- */
+        @media (min-width: 992px) {
+            /* 1. Remove/Hide Hamburger Icon */
+            .menu-icon {
+                display: none;
+            }
+
+            /* 2. Repurpose Mobile Overlay into Horizontal Desktop Nav */
+            .menu-overlay {
+                width: auto !important; 
+                height: auto;
+                position: static;
+                background-color: transparent;
+                overflow: visible;
+                transition: none;
+                
+                display: flex;
+                align-items: center;
+                z-index: 50;
+            }
+
+            .menu-overlay .menu-content {
+                position: static;
+                top: auto;
+                width: auto;
+                margin-top: 0;
+                display: flex;
+                align-items: center;
+                gap: 30px; 
+            }
+
+            .menu-overlay .menu-item {
+                padding: 0;
+                font-size: 0.9rem;
+                color: var(--primary-text);
+                display: block;
+                position: relative;
+                /* Montserrat Medium (400) */
+                font-weight: 400; 
+            }
+
+            .menu-overlay .menu-item:hover {
+                color: var(--primary-text);
+            }
+            
+            /* Desktop Dropdown for INFO */
+            #info-dropdown {
+                cursor: default;
+                position: relative;
+            }
+
+            .submenu {
+                position: absolute;
+                top: 100%; 
+                left: 50%;
+                transform: translateX(-50%);
+                min-width: 200px;
+                background-color: var(--secondary-bg); 
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 60;
+                
+                max-height: 0 !important; 
+                visibility: hidden;
+                opacity: 0;
+                transition: opacity 0.3s, visibility 0.3s;
+                
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            /* Show submenu on 'INFO' hover */
+            #info-dropdown:hover .submenu {
+                max-height: 500px !important; 
+                visibility: visible;
+                opacity: 1;
+            }
+
+            .submenu-item {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                color: var(--secondary-text);
+                text-align: center;
+                white-space: nowrap;
+                border-bottom: none;
+            }
+            
+            .submenu-item:last-child {
+                 border-bottom: none;
+            }
+            
+            .submenu-item:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                color: var(--secondary-text);
+            }
+        }
+        /* --- End Desktop Navigation --- */
+
+        .hero-section {
+            padding-top: 180px; /* Increased for more top spacing */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-bg); /* Pure white background */
+            padding-bottom: 80px; /* Increased for more bottom spacing */
+            text-align: center;
+        }
+
+        .hero-logo img {
+            width: 100%;
+            max-width: 500px; /* Increased hero logo size */
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .scouted-button, .info-pack-button {
+            display: inline-block;
+            width: 80%;
+            max-width: 300px;
+            padding: 15px 40px;
+            border: 1px solid var(--primary-text);
+            background-color: transparent;
+            color: var(--primary-text);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 400;
+            transition: all 0.3s ease-in-out;
+            margin-top: 20px;
+            box-sizing: border-box;
+            font-family: var(--font-body); /* Poppins for buttons */
+        }
+
+        .scouted-button:hover, .info-pack-button:hover {
+            background-color: var(--primary-text);
+            color: var(--primary-bg);
+        }
+
+        .slideshow-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            background-color: var(--primary-bg); /* Pure white background */
+        }
+
+        .slideshow-image {
+            width: 25vw;
+            height: 25vw;
+            max-width: 250px;
+            max-height: 250px;
+            object-fit: cover;
+            animation: slide 30s linear infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .slideshow-image {
+                width: 50vw;
+                height: 50vw;
+            }
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* New section for Discover New Talent */
+        .discover-section {
+            padding: 60px 5%; /* Increased padding for better spacing */
+            text-align: left; /* Default text alignment */
+            background-color: var(--primary-bg); /* Pure white background */
+            display: flex; /* Enable flexbox for two-column layout */
+            flex-direction: column; /* Default stack on mobile */
+            gap: 40px; /* Space between content and image */
+        }
+
+        /* Desktop Layout: Two Columns */
+        @media (min-width: 768px) {
+            .discover-section {
+                flex-direction: row; /* Two columns on desktop */
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+        
+        .discover-content, .discover-image {
+            flex: 1; /* Equal width columns */
+            min-width: 0;
+        }
+
+        .discover-section h2 {
+            margin-bottom: 20px; 
+            font-size: 2.2rem;
+            color: var(--primary-text);
+            font-family: var(--font-heading);
+            font-weight: 400;
+            text-align: left; /* Ensure heading is left-aligned */
+        }
+        
+        .discover-section p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-weight: 300;
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            text-align: left; /* Ensure paragraph is left-aligned */
+        }
+        
+        .discover-content .scouted-button {
+            margin-top: 0;
+            max-width: 250px;
+        }
+
+        .discover-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 400px; /* Reduced from 500px */
+            aspect-ratio: 4/5; /* Portrait aspect ratio */
+            border-radius: 0; /* Square corners */
+            /* Removed box-shadow */
+        }
+
+
+        /* Footer Styles (Mobile First) */
+        .main-footer {
+            background-color: var(--secondary-bg);
+            color: var(--secondary-text);
+            padding: 40px 10%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .footer-section {
+            margin-bottom: 2rem;
+            width: 100%; /* Ensure full width on mobile */
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-weight: 300;
+            font-family: var(--font-heading); 
+        }
+
+        .footer-section p, .footer-section a {
+            margin: 5px 0;
+            font-weight: 300;
+            text-decoration: none;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center on mobile */
+            gap: 10px;
+        }
+
+        .contact-row a {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-row .separator {
+            color: var(--secondary-text);
+        }
+
+        .footer-row {
+            margin-top: 0.5rem;
+            width: 100%; /* Always full width for copyright */
+        }
+        
+        /* Footer Desktop Layout (3 Columns) */
+        @media (min-width: 768px) {
+            .main-footer {
+                flex-direction: row; 
+                flex-wrap: wrap; 
+                justify-content: space-around;
+                align-items: flex-start; 
+                text-align: left; 
+                padding: 60px 5%;
+            }
+
+            .footer-section {
+                flex: 1 1 30%; 
+                margin-bottom: 0;
+                padding: 0 15px;
+                max-width: 350px; 
+            }
+            
+            .footer-section .contact-row {
+                justify-content: flex-start;
+            }
+
+            .footer-row {
+                flex-basis: 100%; 
+                text-align: center;
+                margin-top: 30px;
+                padding-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-logo">
+            <!-- Logo updated to scout.png -->
+            <a href="scouted.html" aria-label="NTA Models Scouting Link">
+                <img src="scout.png" alt="NTA Models Scouting Logo">
+            </a>
+        </div>
+        
+        <div class="menu-icon" id="menu-icon">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <div id="menu-overlay" class="menu-overlay">
+            <div class="menu-content">
+                <a href="index.html" class="menu-item">HOME</a>
+                
+                <div class="menu-item" id="info-dropdown">INFO
+                    <div class="submenu" id="info-submenu">
+                        <a href="about.html" class="submenu-item">ABOUT</a>
+                        <a href="policy.html" class="submenu-item">POLICY</a>
+                        <a href="terms.html" class="submenu-item">TERMS & CONDITIONS</a>
+                        <a href="contact.html" class="submenu-item">CONTACT</a>
+                    </div>
+                </div>
+                
+                <a href="scouted.html" class="menu-item">SCOUTED</a>
+                <a href="getscouted.html" class="menu-item">GET SCOUTED</a>
+                <a href="faqs.html" class="menu-item">FAQS</a>
+                <a href="agencies.html" class="menu-item">associated agencies</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-logo">
+            <!-- Logo updated to scout.png -->
+            <img src="scout.png" alt="NTA Scouting Logo">
+        </div>
+        <!-- Button text changed to GET SCOUTED -->
+        <a href="scouted.html" class="scouted-button">GET SCOUTED</a>
+        <a href="info-pack.html" class="info-pack-button">INFORMATION PACK</a>
+    </section>
+
+    <!-- Slideshow with updated image paths. Borders removed via CSS. -->
+    <div class="slideshow-container">
+        <!-- New model image added -->
+        <img src="assets/m1.jpg" alt="Model Headshot 0" class="slideshow-image">
+        <img src="assets/nta6.jpg" alt="Model Headshot 1" class="slideshow-image">
+        <img src="assets/nta7.jpg" alt="Model Headshot 2" class="slideshow-image">
+        <img src="assets/nta8.jpg" alt="Model Headshot 3" class="slideshow-image">
+        <img src="assets/nta9.jpg" alt="Model Headshot 4" class="slideshow-image">
+        <img src="assets/nta10.jpg" alt="Model Headshot 5" class="slideshow-image">
+    </div>
+    
+    <!-- Updated Section: Discover New Talent (Two Columns, Left Aligned) -->
+    <section class="discover-section">
+        <div class="discover-content">
+            <h2>Discover New Talent</h2>
+            <!-- New Paragraph Added -->
+            <p>Are you a modeling agency looking for the next superstar? Our rigorously scouted and trained talent pool is ready for global campaigns and editorials. Click below to view detailed portfolios.</p>
+            
+            <a href="scouted.html" class="scouted-button">VIEW MODELS</a>
+        </div>
+        <div class="discover-image">
+            <!-- Image updated to assets/m1.jpg -->
+            <img src="assets/m1.jpg" 
+                 alt="Image of a Model" 
+                 loading="lazy"
+            >
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-section">
+            <h3>LOCATION</h3>
+            <p>Cape Town, South Africa</p>
+        </div>
+        <div class="footer-section">
+            <h3>OPERATING HOURS</h3>
+            <p>Monday - Friday: 10am - 7pm</p>
+            <p>Saturday: 11am - 7pm</p>
+            <p>Sunday: Closed</p>
+        </div>
+        <div class="footer-section">
+            <h3>CONTACT</h3>
+            <div class="contact-row">
+                <!-- Instagram link updated to ntamodelssa -->
+                <a href="https://www.instagram.com/ntamodelssa" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
+                </a>
+                <span class="separator">|</span>
+                <span>+27 78 009 3318</span>
+            </div>
+            <p style="margin-top: 10px;">models@ntamodels.co.za</p>
+        </div>
+        <div class="footer-row">
+            <p>Copyright © 2025 NTA Scouting & Placement Agency. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuIcon = document.getElementById('menu-icon');
+            const menuOverlay = document.getElementById('menu-overlay');
+            const infoDropdown = document.getElementById('info-dropdown');
+            const infoSubmenu = document.getElementById('info-submenu');
+            const body = document.body;
+            
+            // Check for desktop environment (matches CSS media query)
+            const isDesktop = () => window.matchMedia("(min-width: 992px)").matches;
+
+            // --- Mobile Menu Toggle ---
+            if (menuIcon && menuOverlay) {
+                 menuIcon.addEventListener('click', () => {
+                    // Only open/close if not desktop
+                    if (!isDesktop()) {
+                        if (menuOverlay.style.width === '100%') {
+                            closeNav();
+                        } else {
+                            openNav();
+                        }
+                    }
+                });
+            }
+
+            // Close menu if clicking outside the content area on mobile
+            menuOverlay.addEventListener('click', (e) => {
+                if (!isDesktop() && e.target === menuOverlay) {
+                    closeNav();
+                }
+            });
+
+            // --- Info Submenu Toggle (Mobile Only) ---
+            infoDropdown.addEventListener('click', () => {
+                // Only toggle on mobile
+                if (!isDesktop()) {
+                    if (infoSubmenu.style.maxHeight) {
+                        infoSubmenu.style.maxHeight = null;
+                    } else {
+                        infoSubmenu.style.maxHeight = infoSubmenu.scrollHeight + 'px';
+                    }
+                }
+                // Stop default behavior on desktop to allow CSS :hover to work
+            });
+
+            function openNav() {
+                menuOverlay.style.width = '100%';
+                menuIcon.classList.add('open');
+                body.style.overflow = 'hidden';
+            }
+
+            function closeNav() {
+                menuOverlay.style.width = '0%';
+                menuIcon.classList.remove('open');
+                body.style.overflow = 'auto';
+                infoSubmenu.style.maxHeight = null; // Also close submenu
+            }
+        });
+    </script>
+</body>
+</html>

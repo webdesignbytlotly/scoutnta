@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | NTA Models Scouting</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Official Terms and Conditions for using the NTA Models SA Scouting Division's services, including commission fee details.">
+    <meta name="keywords" content="terms and conditions, NTA Models, model commission fee, scouting agreement, South Africa">
+    <meta name="author" content="NTA Scouting & Placement Agency">
+    <!-- End SEO Meta Tags -->
+
+    <!-- Importing required fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@300;400&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #FFFFFF;
+            --primary-text: #000000;
+            --secondary-bg: #000000;
+            --secondary-text: #FFFFFF;
+            --transparent-black: rgba(0, 0, 0, 0.95); /* Slightly darker for better contrast */
+            --font-title: 'Montserrat', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 300; /* Playfair Display Thin Light */
+        }
+        
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            background-color: var(--primary-bg);
+            z-index: 50;
+            box-sizing: border-box;
+        }
+
+        .header-logo img {
+            height: 70px; 
+            max-width: 100%;
+        }
+
+        .main-header .header-logo {
+            font-family: var(--font-title);
+            font-weight: 300;
+            font-size: 1.5rem;
+        }
+        
+        .header-logo a {
+             text-decoration: none;
+        }
+
+        /* --- Mobile Menu Icon (Hamburger) --- */
+        .menu-icon {
+            cursor: pointer;
+            z-index: 101;
+        }
+
+        .menu-icon .line {
+            width: 30px;
+            height: 2px;
+            background-color: var(--primary-text); 
+            margin: 6px 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .menu-icon.open .line {
+            background-color: var(--secondary-text); 
+        }
+        
+        .menu-icon.open .line:first-child {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .menu-icon.open .line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-icon.open .line:last-child {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* --- Mobile Overlay Styles (Default) --- */
+        .menu-overlay {
+            height: 100%;
+            width: 0; 
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            background-color: var(--transparent-black);
+            overflow-x: hidden;
+            transition: 0.5s;
+            text-align: center;
+        }
+
+        .menu-overlay .menu-content {
+            position: relative;
+            top: 150px; 
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .menu-overlay .menu-item {
+            padding: 12px;
+            text-decoration: none;
+            font-size: 1.8rem;
+            color: var(--secondary-text);
+            display: block;
+            transition: 0.3s;
+            font-weight: 400; 
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: var(--font-title); 
+        }
+
+        .menu-overlay .menu-item:hover {
+            color: #d1d1d1;
+        }
+
+        /* Mobile Submenu */
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .submenu-item {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: var(--secondary-text);
+            display: block;
+            font-weight: 300;
+            text-transform: uppercase;
+            font-family: var(--font-title);
+        }
+
+        /* --- Desktop Navigation (Media Query) --- */
+        @media (min-width: 992px) {
+            .menu-icon {
+                display: none;
+            }
+
+            .menu-overlay {
+                width: auto !important; 
+                height: auto;
+                position: static;
+                background-color: transparent;
+                overflow: visible;
+                transition: none;
+                
+                display: flex;
+                align-items: center;
+                z-index: 50;
+            }
+
+            .menu-overlay .menu-content {
+                position: static;
+                top: auto;
+                width: auto;
+                margin-top: 0;
+                display: flex;
+                align-items: center;
+                gap: 30px; 
+            }
+
+            .menu-overlay .menu-item {
+                padding: 0;
+                font-size: 0.9rem;
+                color: var(--primary-text);
+                display: block;
+                position: relative;
+                font-weight: 400; 
+            }
+
+            .menu-overlay .menu-item:hover {
+                color: var(--primary-text);
+            }
+            
+            #info-dropdown {
+                cursor: default;
+                position: relative;
+            }
+
+            .submenu {
+                position: absolute;
+                top: 100%; 
+                left: 50%;
+                transform: translateX(-50%);
+                min-width: 200px;
+                background-color: var(--secondary-bg); 
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 60;
+                
+                max-height: 0 !important; 
+                visibility: hidden;
+                opacity: 0;
+                transition: opacity 0.3s, visibility 0.3s;
+                
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            #info-dropdown:hover .submenu {
+                max-height: 500px !important; 
+                visibility: visible;
+                opacity: 1;
+            }
+
+            .submenu-item {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                color: var(--secondary-text);
+                text-align: center;
+                white-space: nowrap;
+                border-bottom: none;
+            }
+            
+            .submenu-item:last-child {
+                 border-bottom: none;
+            }
+            
+            .submenu-item:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                color: var(--secondary-text);
+            }
+        }
+        /* --- End Desktop Navigation --- */
+
+        /* --- Page Specific Styles --- */
+        .page-hero {
+            padding-top: 150px; /* Adjust based on header height */
+            padding-bottom: 50px;
+            text-align: center;
+            background-color: var(--primary-bg);
+        }
+
+        .page-hero h1 {
+            font-family: var(--font-title); /* Montserrat */
+            font-weight: 400; /* Medium */
+            font-size: 2.5rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        
+        /* Removed .agency-disclaimer styles */
+
+        /* Policy/Terms Content Styling */
+        .policy-content-section {
+            padding: 40px 10%;
+            max-width: 900px;
+            margin: 0 auto 80px auto; /* Center content and push footer down */
+            text-align: left;
+        }
+        
+        .policy-content-section h2 {
+            font-family: var(--font-body); 
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .policy-content-section p, .policy-content-section li {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-weight: 300;
+            font-family: var(--font-body);
+            font-size: 1rem;
+        }
+        
+        .policy-content-section ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        
+        .policy-content-section li {
+            margin-bottom: 5px;
+        }
+
+        /* --- End Page Specific Styles --- */
+
+        /* Footer Styles (Mobile First) */
+        .main-footer {
+            background-color: var(--secondary-bg);
+            color: var(--secondary-text);
+            padding: 40px 10%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .footer-section {
+            margin-bottom: 2rem;
+            width: 100%; 
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-weight: 300;
+            font-family: var(--font-heading); 
+        }
+
+        .footer-section p, .footer-section a {
+            margin: 5px 0;
+            font-weight: 300;
+            text-decoration: none;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            gap: 10px;
+        }
+
+        .contact-row a {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-row .separator {
+            color: var(--secondary-text);
+        }
+
+        .footer-row {
+            margin-top: 0.5rem;
+            width: 100%; 
+        }
+        
+        /* Footer Desktop Layout (3 Columns) */
+        @media (min-width: 768px) {
+            .main-footer {
+                flex-direction: row; 
+                flex-wrap: wrap; 
+                justify-content: space-around;
+                align-items: flex-start; 
+                text-align: left; 
+                padding: 60px 5%;
+            }
+
+            .footer-section {
+                flex: 1 1 30%; 
+                margin-bottom: 0;
+                padding: 0 15px;
+                max-width: 350px; 
+            }
+            
+            .footer-section .contact-row {
+                justify-content: flex-start;
+            }
+
+            .footer-row {
+                flex-basis: 100%; 
+                text-align: center;
+                margin-top: 30px;
+                padding-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-logo">
+            <a href="scouted.html" aria-label="NTA Models Scouting Link">
+                <img src="scout.png" alt="NTA Models Scouting Logo">
+            </a>
+        </div>
+        
+        <div class="menu-icon" id="menu-icon">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <div id="menu-overlay" class="menu-overlay">
+            <div class="menu-content">
+                <a href="index.html" class="menu-item">HOME</a>
+                
+                <div class="menu-item" id="info-dropdown">INFO
+                    <div class="submenu" id="info-submenu">
+                        <a href="about.html" class="submenu-item">ABOUT</a> 
+                        <a href="policy.html" class="submenu-item">POLICY</a>
+                        <!-- Highlight current page (TERMS & CONDITIONS) -->
+                        <a href="terms.html" class="submenu-item" style="font-weight: 700;">TERMS & CONDITIONS</a>
+                        <a href="contact.html" class="submenu-item">CONTACT</a>
+                    </div>
+                </div>
+                
+                <a href="scouted.html" class="menu-item">SCOUTED</a>
+                <a href="getscouted.html" class="menu-item">GET SCOUTED</a>
+                <a href="faqs.html" class="menu-item">FAQS</a>
+                 <a href="agencies.html" class="menu-item">associated agencies</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <h1>TERMS & CONDITIONS</h1>
+    </section>
+    
+    <!-- The agency-disclaimer section has been removed as requested -->
+
+    <!-- TERMS & CONDITIONS CONTENT -->
+    <section class="policy-content-section">
+        <p>Welcome to the NTA Models SA Scouting Division website. By using this website, you agree to follow these simple rules. If you don't agree with them, please do not use our site.</p>
+
+        <h2>1. Your Agreement</h2>
+        <p>By accessing or using our website, you agree to be bound by these Terms and Conditions. These terms apply to all visitors, users, and others who access or use our service.</p>
+
+        <h2>2. Our Services and Fees</h2>
+        <p>The scouting service provided by NTA Models SA is <strong>free</strong> for all applicants initially. Our goal is to help you get signed with a professional modeling agency.</p>
+        
+        <p>We charge a **R19.00 (ZAR)** administrative fee to process applications from models who are not scouted directly by our agents and are representing themselves independently. This is a once-off, non-refundable charge that helps us process applications efficiently and invest time in models who are serious.</p>
+        
+        <p><strong>Important Payment Note:</strong> This admin fee is only paid on our official website domain: <strong><code>scout.ntamodels.co.za</code></strong>. We will never provide you with banking details to deposit money, and we do not provide links to external websites for payment.</p>
+
+        <p>If you are successfully signed with an agency through our scouting efforts, you agree to pay NTA Models SA a <strong>10% commission fee</strong> from the first two successful bookings you receive with that agency. This fee is paid directly to us and is separate from any commissions or fees the agency may charge you. This allows us to continue our scouting efforts and support new talent.</p>
+
+        <h2>3. Your Responsibilities</h2>
+        <p>You must be at least 18 years old to use our service, or have the consent of a parent or legal guardian.</p>
+        <ul>
+            <li>You must provide accurate and truthful information in your application.</li>
+            <li>You agree not to submit any content that is illegal, offensive, or inappropriate.</li>
+            <li>You understand that our scouting service is provided "as is," and we are not responsible for any technical issues or delays.</li>
+        </ul>
+
+        <h2>4. Content and Ownership</h2>
+        <p>Any content you submit to us (like photos or information) remains your property. However, by submitting it, you give us permission to use, display, and share it for the purpose of evaluating your potential as a model. This includes sharing your profile on our Instagram page, <strong>@ntamodels.scout</strong>, and on this website to promote our scouting division and the talent we discover. We may also share your profile with our partner agencies if we believe you are a good fit for them.</p>
+
+        <h2>5. Our Right to Change Things</h2>
+        <p>We can update or change these Terms and Conditions at any time. We will post the new terms on this page, and they will apply immediately. It is your responsibility to check this page for updates.</p>
+
+        <h2>6. Disclaimers</h2>
+        <p>We do our best to ensure the website is working correctly, but we cannot guarantee it will always be available or free from errors. We are not responsible for any damages or losses that might occur from using this website.</p>
+
+        <h2>7. Final Word</h2>
+        <p>These terms are a simple agreement between you and NTA Models SA Scouting Division. If you have any questions, please contact us.</p>
+    </section>
+
+
+    <footer class="main-footer">
+        <div class="footer-section">
+            <h3>LOCATION</h3>
+            <p>Cape Town, South Africa</p>
+        </div>
+        <div class="footer-section">
+            <h3>OPERATING HOURS</h3>
+            <p>Monday - Friday: 10am - 7pm</p>
+            <p>Saturday: 11am - 7pm</p>
+            <p>Sunday: Closed</p>
+        </div>
+        <div class="footer-section">
+            <h3>CONTACT</h3>
+            <div class="contact-row">
+                <a href="https://www.instagram.com/ntamodelssa" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
+                </a>
+                <span class="separator">|</span>
+                <span>+27 78 009 3318</span>
+            </div>
+            <p style="margin-top: 10px;">models@ntamodels.co.za</p>
+        </div>
+        <div class="footer-row">
+            <p>Copyright © 2025 NTA Scouting & Placement Agency. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuIcon = document.getElementById('menu-icon');
+            const menuOverlay = document.getElementById('menu-overlay');
+            const infoDropdown = document.getElementById('info-dropdown');
+            const infoSubmenu = document.getElementById('info-submenu');
+            const body = document.body;
+            
+            const isDesktop = () => window.matchMedia("(min-width: 992px)").matches;
+
+            // --- Mobile Menu Toggle ---
+            if (menuIcon && menuOverlay) {
+                 menuIcon.addEventListener('click', () => {
+                    if (!isDesktop()) {
+                        if (menuOverlay.style.width === '100%') {
+                            closeNav();
+                        } else {
+                            openNav();
+                        }
+                    }
+                });
+            }
+
+            // Close menu if clicking outside the content area on mobile
+            menuOverlay.addEventListener('click', (e) => {
+                if (!isDesktop() && e.target === menuOverlay) {
+                    closeNav();
+                }
+            });
+
+            // --- Info Submenu Toggle (Mobile Only) ---
+            infoDropdown.addEventListener('click', () => {
+                if (!isDesktop()) {
+                    if (infoSubmenu.style.maxHeight) {
+                        infoSubmenu.style.maxHeight = null;
+                    } else {
+                        infoSubmenu.style.maxHeight = infoSubmenu.scrollHeight + 'px';
+                    }
+                }
+            });
+
+            function openNav() {
+                menuOverlay.style.width = '100%';
+                menuIcon.classList.add('open');
+                body.style.overflow = 'hidden';
+            }
+
+            function closeNav() {
+                menuOverlay.style.width = '0%';
+                menuIcon.classList.remove('open');
+                body.style.overflow = 'auto';
+                infoSubmenu.style.maxHeight = null; 
+            }
+        });
+    </script>
+</body>
+</html>

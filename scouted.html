@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scouted | NTA Models Scouting</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Discover the success stories and global placements of models scouted by NTA Models SA.">
+    <meta name="keywords" content="scouted models, NTA placements, model success, talent agency portfolio">
+    <meta name="author" content="NTA Scouting & Placement Agency">
+    <!-- End SEO Meta Tags -->
+
+    <!-- Importing required fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@300;400&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #FFFFFF;
+            --primary-text: #000000;
+            --secondary-bg: #000000;
+            --secondary-text: #FFFFFF;
+            --transparent-black: rgba(0, 0, 0, 0.95); /* Slightly darker for better contrast */
+            --font-title: 'Montserrat', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --accent-color: #3f51b5; /* A neutral blue for interaction */
+        }
+        
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 300; /* Playfair Display Thin Light */
+        }
+        
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            background-color: var(--primary-bg);
+            z-index: 50;
+            box-sizing: border-box;
+        }
+
+        .header-logo img {
+            height: 70px; 
+            max-width: 100%;
+        }
+
+        .main-header .header-logo {
+            font-family: var(--font-title);
+            font-weight: 300;
+            font-size: 1.5rem;
+        }
+        
+        .header-logo a {
+             text-decoration: none;
+        }
+
+        /* --- Mobile Menu Icon (Hamburger) --- */
+        .menu-icon {
+            cursor: pointer;
+            z-index: 101;
+        }
+
+        .menu-icon .line {
+            width: 30px;
+            height: 2px;
+            background-color: var(--primary-text); 
+            margin: 6px 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .menu-icon.open .line {
+            background-color: var(--secondary-text); 
+        }
+        
+        .menu-icon.open .line:first-child {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .menu-icon.open .line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-icon.open .line:last-child {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* --- Mobile Overlay Styles (Default) --- */
+        .menu-overlay {
+            height: 100%;
+            width: 0; 
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            background-color: var(--transparent-black);
+            overflow-x: hidden;
+            transition: 0.5s;
+            text-align: center;
+        }
+
+        .menu-overlay .menu-content {
+            position: relative;
+            top: 150px; 
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .menu-overlay .menu-item {
+            padding: 12px;
+            text-decoration: none;
+            font-size: 1.8rem;
+            color: var(--secondary-text);
+            display: block;
+            transition: 0.3s;
+            font-weight: 400; 
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: var(--font-title); 
+        }
+
+        .menu-overlay .menu-item:hover {
+            color: #d1d1d1;
+        }
+
+        /* Mobile Submenu */
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .submenu-item {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: var(--secondary-text);
+            display: block;
+            font-weight: 300;
+            text-transform: uppercase;
+            font-family: var(--font-title);
+        }
+
+        /* --- Desktop Navigation (Media Query) --- */
+        @media (min-width: 992px) {
+            .menu-icon {
+                display: none;
+            }
+
+            .menu-overlay {
+                width: auto !important; 
+                height: auto;
+                position: static;
+                background-color: transparent;
+                overflow: visible;
+                transition: none;
+                
+                display: flex;
+                align-items: center;
+                z-index: 50;
+            }
+
+            .menu-overlay .menu-content {
+                position: static;
+                top: auto;
+                width: auto;
+                margin-top: 0;
+                display: flex;
+                align-items: center;
+                gap: 30px; 
+            }
+
+            .menu-overlay .menu-item {
+                padding: 0;
+                font-size: 0.9rem;
+                color: var(--primary-text);
+                display: block;
+                position: relative;
+                font-weight: 400; 
+            }
+
+            .menu-overlay .menu-item:hover {
+                color: var(--primary-text);
+            }
+            
+            #info-dropdown {
+                cursor: default;
+                position: relative;
+            }
+
+            .submenu {
+                position: absolute;
+                top: 100%; 
+                left: 50%;
+                transform: translateX(-50%);
+                min-width: 200px;
+                background-color: var(--secondary-bg); 
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 60;
+                
+                max-height: 0 !important; 
+                visibility: hidden;
+                opacity: 0;
+                transition: opacity 0.3s, visibility 0.3s;
+                
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            #info-dropdown:hover .submenu {
+                max-height: 500px !important; 
+                visibility: visible;
+                opacity: 1;
+            }
+
+            .submenu-item {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                color: var(--secondary-text);
+                text-align: center;
+                white-space: nowrap;
+                border-bottom: none;
+            }
+            
+            .submenu-item:last-child {
+                 border-bottom: none;
+            }
+            
+            .submenu-item:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                color: var(--secondary-text);
+            }
+        }
+        /* --- End Desktop Navigation --- */
+
+        /* --- Page Specific Styles --- */
+        .page-hero {
+            padding-top: 150px; 
+            padding-bottom: 50px;
+            text-align: center;
+            background-color: var(--primary-bg);
+        }
+        
+        /* New Page Title Styling - Not bolded */
+        .page-hero h1 {
+            font-family: var(--font-title);
+            font-weight: 400; /* Removed bold */
+            font-size: 3.5rem; 
+            margin: 0 0 40px 0;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+        }
+
+        .main-content {
+            padding: 40px 5%;
+            max-width: 1200px;
+            margin: 0 auto 80px auto; 
+            text-align: center;
+        }
+
+        /* Filter Controls */
+        .filter-container {
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .filter-button {
+            background: none;
+            border: none;
+            color: #777;
+            font-family: var(--font-title);
+            font-weight: 400;
+            font-size: 1rem;
+            text-transform: uppercase;
+            padding: 8px 0;
+            cursor: pointer;
+            transition: color 0.3s, border-bottom 0.3s;
+            outline: none;
+        }
+
+        .filter-button:hover {
+            color: var(--primary-text);
+        }
+
+        .filter-button.active {
+            color: var(--primary-text);
+            font-weight: 700;
+            border-bottom: 2px solid var(--primary-text);
+        }
+
+        /* Gallery Styles */
+        .scouted-gallery {
+            /* Mobile/Tablet: Auto-fit columns */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+            transition: all 0.5s ease-out;
+        }
+        
+        /* Desktop Layout (Max 3 Columns in a Row) */
+        @media (min-width: 992px) {
+            .scouted-gallery {
+                grid-template-columns: repeat(3, 1fr); /* Enforce 3 columns for consistency */
+                max-width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+
+        .placement-card {
+            background-color: transparent; /* Website background */
+            border-radius: 0; 
+            overflow: hidden;
+            text-align: left;
+            box-shadow: none; /* Removed shadow */
+            transition: transform 0.3s ease, opacity 0.3s;
+        }
+        
+        .placement-card:hover {
+            transform: none; /* Removed hover highlight */
+            box-shadow: none; /* Removed hover shadow */
+        }
+
+        /* Filtering classes */
+        .placement-card.hidden {
+            display: none;
+            opacity: 0;
+        }
+        
+        .card-image-container {
+            width: 100%;
+            padding-top: 135%; /* Fixed portrait aspect ratio */
+            position: relative;
+            overflow: hidden;
+            border-radius: 0; 
+        }
+        
+        .card-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            border-radius: 0; /* No rounded corners for image */
+        }
+        
+        .card-info {
+            padding: 10px 0; /* Adjusted padding */
+            text-align: center;
+            background-color: transparent; /* Ensures name is on website background */
+        }
+
+        .card-info p {
+            font-family: var(--font-body);
+            font-weight: 400; /* Not bold */
+            font-size: 1.1rem;
+            color: var(--primary-text);
+            margin: 5px 0;
+            line-height: 1.4;
+            text-transform: uppercase;
+        }
+
+        /* --- Footer Styles --- */
+        .main-footer {
+            background-color: var(--secondary-bg);
+            color: var(--secondary-text);
+            padding: 40px 10%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .footer-section {
+            margin-bottom: 2rem;
+            width: 100%; 
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-weight: 300;
+            font-family: var(--font-heading); 
+        }
+
+        .footer-section p, .footer-section a {
+            margin: 5px 0;
+            font-weight: 300;
+            text-decoration: none;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            gap: 10px;
+        }
+
+        .contact-row a {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-row .separator {
+            color: var(--secondary-text);
+        }
+
+        .footer-row {
+            margin-top: 0.5rem;
+            width: 100%; 
+        }
+        
+        /* Footer Desktop Layout (3 Columns) */
+        @media (min-width: 768px) {
+            .main-footer {
+                flex-direction: row; 
+                flex-wrap: wrap; 
+                justify-content: space-around;
+                align-items: flex-start; 
+                text-align: left; 
+                padding: 60px 5%;
+            }
+
+            .footer-section {
+                flex: 1 1 30%; 
+                margin-bottom: 0;
+                padding: 0 15px;
+                max-width: 350px; 
+            }
+            
+            .footer-section .contact-row {
+                justify-content: flex-start;
+            }
+
+            .footer-row {
+                flex-basis: 100%; 
+                text-align: center;
+                margin-top: 30px;
+                padding-top: 20px;
+            }
+        }
+        /* --- End Footer Styles --- */
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-logo">
+            <a href="scouted.html" aria-label="NTA Models Scouting Link">
+                <img src="scout.png" alt="NTA Models Scouting Logo">
+            </a>
+        </div>
+        
+        <div class="menu-icon" id="menu-icon">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <div id="menu-overlay" class="menu-overlay">
+            <div class="menu-content">
+                <a href="index.html" class="menu-item">HOME</a>
+                
+                <div class="menu-item" id="info-dropdown">INFO
+                    <div class="submenu" id="info-submenu">
+                        <a href="about.html" class="submenu-item">ABOUT</a> 
+                        <a href="policy.html" class="submenu-item">POLICY</a>
+                        <a href="terms.html" class="submenu-item">TERMS & CONDITIONS</a>
+                        <a href="contact.html" class="submenu-item">CONTACT</a>
+                    </div>
+                </div>
+                
+                <a href="scouted.html" class="menu-item" style="font-weight: 700;">SCOUTED</a> <!-- Highlighted -->
+                <a href="getscouted.html" class="menu-item">GET SCOUTED</a>
+                <a href="faqs.html" class="menu-item">FAQS</a>
+                <a href="agencies.html" class="menu-item">associated agencies</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <!-- Page Title -->
+        <h1>SCOUTED</h1> 
+    </section>
+    
+    <!-- SCOUTED CONTENT SECTION -->
+    <main class="main-content">
+        
+        <!-- Gallery Filter Controls -->
+        <div class="filter-container">
+            <button class="filter-button active" data-filter="all">ALL</button>
+            <button class="filter-button" data-filter="women">WOMEN</button>
+            <button class="filter-button" data-filter="men">MEN</button>
+            <button class="filter-button" data-filter="non-binary">NON-BINARY</button>
+        </div>
+
+        <div class="scouted-gallery">
+            
+            <!-- Placement Card 1: WOMEN -->
+            <div class="placement-card gender-women" data-gender="women">
+                <a href="models/anna/portfolio.html" aria-label="View Anna's portfolio">
+                    <div class="card-image-container">
+                        <img src="models/anna/ana3.jpg" alt="Anna, NTA Scouted Model (Women)" class="card-image" onerror="this.onerror=null; this.src='https://placehold.co/400x540/3f51b5/FFFFFF?text=ANNA'">
+                    </div>
+                </a>
+                <div class="card-info">
+                    <p>Anastasiia</p>
+                </div>
+            </div>
+
+            <!-- Placement Card 2: MEN -->
+            <div class="placement-card gender-men" data-gender="men">
+                <a href="models/liam/portfolio.html" aria-label="View Liam's portfolio">
+                    <div class="card-image-container">
+                        <img src="https://placehold.co/400x540/111111/FFFFFF?text=LIAM" alt="Liam, NTA Scouted Model (Men)" class="card-image" onerror="this.onerror=null; this.src='https://placehold.co/400x540/3f51b5/FFFFFF?text=LIAM'">
+                    </div>
+                </a>
+                <div class="card-info">
+                    <p>Liam</p>
+                </div>
+            </div>
+            
+            <!-- Placement Card 3: NON-BINARY -->
+            <div class="placement-card gender-non-binary" data-gender="non-binary">
+                <a href="models/jade/portfolio.html" aria-label="View Jade's portfolio">
+                    <div class="card-image-container">
+                        <img src="https://placehold.co/400x540/111111/FFFFFF?text=JADE" alt="Jade, NTA Scouted Model (Non-Binary)" class="card-image" onerror="this.onerror=null; this.src='https://placehold.co/400x540/3f51b5/FFFFFF?text=JADE'">
+                    </div>
+                </a>
+                <div class="card-info">
+                    <p>Jade</p>
+                </div>
+            </div>
+            
+            <!-- Additional Cards can be added here -->
+
+        </div>
+        
+    </main>
+
+
+    <footer class="main-footer">
+        <div class="footer-section">
+            <h3>LOCATION</h3>
+            <p>Cape Town, South Africa</p>
+        </div>
+        <div class="footer-section">
+            <h3>OPERATING HOURS</h3>
+            <p>Monday - Friday: 10am - 7pm</p>
+            <p>Saturday: 11am - 7pm</p>
+            <p>Sunday: Closed</p>
+        </div>
+        <div class="footer-section">
+            <h3>CONTACT</h3>
+            <div class="contact-row">
+                <a href="https://www.instagram.com/ntamodelssa" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
+                </a>
+                <span class="separator">|</span>
+                <span>+27 78 009 3318</span>
+            </div>
+            <p style="margin-top: 10px;">models@ntamodels.co.za</p>
+        </div>
+        <div class="footer-row">
+            <p>Copyright © 2025 NTA Scouting & Placement Agency. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuIcon = document.getElementById('menu-icon');
+            const menuOverlay = document.getElementById('menu-overlay');
+            const infoDropdown = document.getElementById('info-dropdown');
+            const infoSubmenu = document.getElementById('info-submenu');
+            const body = document.body;
+            
+            const isDesktop = () => window.matchMedia("(min-width: 992px)").matches;
+
+            // --- Mobile Menu Toggle ---
+            if (menuIcon && menuOverlay) {
+                 menuIcon.addEventListener('click', () => {
+                    if (!isDesktop()) {
+                        if (menuOverlay.style.width === '100%') {
+                            closeNav();
+                        } else {
+                            openNav();
+                        }
+                    }
+                });
+            }
+
+            // Close menu if clicking outside the content area on mobile
+            menuOverlay.addEventListener('click', (e) => {
+                if (!isDesktop() && e.target === menuOverlay) {
+                    closeNav();
+                }
+            });
+
+            // --- Info Submenu Toggle (Mobile Only) ---
+            infoDropdown.addEventListener('click', () => {
+                if (!isDesktop()) {
+                    if (infoSubmenu.style.maxHeight) {
+                        infoSubmenu.style.maxHeight = null;
+                    } else {
+                        infoSubmenu.style.maxHeight = infoSubmenu.scrollHeight + 'px';
+                    }
+                }
+            });
+
+            function openNav() {
+                menuOverlay.style.width = '100%';
+                menuIcon.classList.add('open');
+                body.style.overflow = 'hidden';
+            }
+
+            function closeNav() {
+                menuOverlay.style.width = '0%';
+                menuIcon.classList.remove('open');
+                body.style.overflow = 'auto';
+                infoSubmenu.style.maxHeight = null; 
+            }
+            
+            // --- Gallery Filtering Logic ---
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const modelCards = document.querySelectorAll('.placement-card');
+
+            function filterGallery(filter) {
+                modelCards.forEach(card => {
+                    const gender = card.getAttribute('data-gender');
+                    
+                    if (filter === 'all' || gender === filter) {
+                        card.classList.remove('hidden');
+                        card.style.display = 'block'; // Ensure it becomes visible
+                    } else {
+                        card.classList.add('hidden');
+                        card.style.display = 'none'; // Hide it when filtered out
+                    }
+                });
+            }
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active state of buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Apply filtering
+                    filterGallery(filter);
+                });
+            });
+
+            // Initial filter call (to ensure 'ALL' is displayed and active)
+            filterGallery('all');
+        });
+    </script>
+</body>
+</html>

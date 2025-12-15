@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs | NTA Models Scouting</title>
+    
+    <meta name="description" content="Frequently Asked Questions about NTA Models scouting and application process.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@300;400&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #FFFFFF;
+            --primary-text: #000000;
+            --secondary-bg: #000000;
+            --secondary-text: #FFFFFF;
+            --transparent-black: rgba(0, 0, 0, 0.95);
+            --font-title: 'Montserrat', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --accent-color: #A9A9A9;
+        }
+        
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            overflow-x: hidden;
+        }
+
+        /* --- Header Styles (Attached/No Shadow) --- */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            background-color: var(--primary-bg);
+            z-index: 1000;
+            box-sizing: border-box;
+            /* Explicitly removed all shadows and highlights */
+            box-shadow: none;
+            border: none;
+        }
+
+        .header-logo img { height: 70px; }
+        .header-logo a { text-decoration: none; }
+
+        /* --- Menu Icon --- */
+        .menu-icon { cursor: pointer; z-index: 1010; position: relative; }
+        .menu-icon .line {
+            width: 30px; height: 2px;
+            background-color: var(--primary-text); 
+            margin: 6px 0; transition: all 0.3s ease-in-out;
+        }
+        /* Mobile adjustment for icon visibility on dark overlay */
+        .menu-icon.open .line { background-color: var(--secondary-text); }
+        .menu-icon.open .line:first-child { transform: translateY(8px) rotate(45deg); }
+        .menu-icon.open .line:nth-child(2) { opacity: 0; }
+        .menu-icon.open .line:last-child { transform: translateY(-8px) rotate(-45deg); }
+
+        /* --- Menu Overlay --- */
+        .menu-overlay {
+            height: 100%; width: 0; position: fixed;
+            z-index: 1005; top: 0; left: 0;
+            background-color: var(--transparent-black);
+            overflow-x: hidden; transition: 0.5s;
+            text-align: center;
+            display: flex; flex-direction: column;
+        }
+        .menu-overlay .menu-content { position: relative; top: 120px; width: 100%; }
+        .menu-overlay .menu-item {
+            padding: 15px; text-decoration: none; font-size: 1.4rem;
+            color: var(--secondary-text); display: block;
+            transition: 0.3s; font-weight: 400; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); 
+        }
+
+        /* --- Submenu (Mobile) --- */
+        .submenu {
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;
+            background: rgba(255,255,255,0.05);
+            display: flex; flex-direction: column;
+        }
+        .submenu-item {
+            padding: 12px; font-size: 1rem; color: var(--accent-color);
+            text-decoration: none; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        /* --- FAQ Section --- */
+        .faq-hero { padding-top: 150px; padding-bottom: 50px; text-align: center; }
+        .faq-hero h1 { font-family: var(--font-title); font-weight: 400; font-size: 2.5rem; letter-spacing: 5px; text-transform: uppercase; }
+        .faq-container { max-width: 900px; margin: 0 auto 100px auto; padding: 0 5%; }
+        .faq-item { border-bottom: 1px solid #e0e0e0; }
+        .faq-question {
+            width: 100%; padding: 25px 0; background: none; border: none;
+            display: flex; justify-content: space-between; align-items: center;
+            cursor: pointer; text-align: left; font-family: var(--font-title);
+            font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 400;
+        }
+        .faq-answer { 
+            max-height: 0; overflow: hidden; transition: max-height 0.4s ease; 
+            color: #555; line-height: 1.6; font-size: 0.9rem;
+        }
+        .faq-item.active .faq-answer { max-height: 500px; padding-bottom: 25px; }
+        .faq-icon { font-size: 1.5rem; font-weight: 300; transition: transform 0.3s; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+
+        /* --- Desktop Navigation --- */
+        @media (min-width: 992px) {
+            .menu-icon { display: none; }
+            .menu-overlay { 
+                width: auto !important; height: auto; position: static;
+                background-color: transparent; overflow: visible; display: flex; 
+                flex-direction: row; align-items: center;
+            }
+            .menu-overlay .menu-content { position: static; width: auto; display: flex; gap: 25px; }
+            .menu-overlay .menu-item { padding: 0; font-size: 0.85rem; color: var(--primary-text); }
+            .submenu {
+                position: absolute; background: var(--secondary-bg); min-width: 200px;
+                display: none; top: 100%; left: 0; max-height: none;
+            }
+            #info-dropdown { position: relative; }
+            #info-dropdown:hover .submenu { display: flex; }
+            .submenu-item { color: white; text-align: left; padding: 15px; }
+            .submenu-item:hover { background: #222; }
+        }
+
+        /* --- Footer --- */
+        .main-footer {
+            background-color: var(--secondary-bg);
+            color: var(--secondary-text);
+            padding: 40px 10%;
+            display: flex; flex-direction: column;
+            align-items: center; text-align: center;
+        }
+        .footer-section { margin-bottom: 2rem; width: 100%; }
+        .footer-section h3 { font-size: 1.1rem; text-transform: uppercase; margin-bottom: 15px; font-family: var(--font-title); }
+        .footer-section p { font-size: 0.9rem; margin: 5px 0; font-weight: 300; }
+        .contact-row { display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .footer-row { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.8rem; margin-top: 20px;}
+        
+        @media (min-width: 768px) {
+            .main-footer { flex-direction: row; flex-wrap: wrap; justify-content: space-around; text-align: left; }
+            .footer-section { flex: 1; max-width: 300px; padding: 0 10px; }
+            .footer-section .contact-row { justify-content: flex-start; }
+            .footer-row { flex-basis: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-logo">
+            <a href="index.html">
+                <img src="scout.png" alt="NTA Models Scouting">
+            </a>
+        </div>
+        
+        <div class="menu-icon" id="menu-icon">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <div id="menu-overlay" class="menu-overlay">
+            <div class="menu-content">
+                <a href="index.html" class="menu-item">HOME</a>
+                <div class="menu-item" id="info-dropdown">
+                    INFO
+                    <div class="submenu" id="info-submenu">
+                        <a href="about.html" class="submenu-item">ABOUT</a> 
+                        <a href="policy.html" class="submenu-item">POLICY</a>
+                        <a href="terms.html" class="submenu-item">TERMS & CONDITIONS</a>
+                        <a href="contact.html" class="submenu-item">CONTACT</a>
+                    </div>
+                </div>
+                <a href="scouted.html" class="menu-item">SCOUTED</a>
+                <a href="getscouted.html" class="menu-item">GET SCOUTED</a>
+                <a href="faqs.html" class="menu-item" style="font-weight: 700;">FAQS</a>
+                <a href="agencies.html" class="menu-item">ASSOCIATED AGENCIES</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="faq-hero">
+        <h1>FAQS</h1>
+    </section>
+
+    <div class="faq-container">
+        <div class="faq-item">
+            <button class="faq-question">How do I apply to be scouted? <span class="faq-icon">+</span></button>
+            <div class="faq-answer">Navigate to our "GET SCOUTED" page and complete the application form. Ensure you upload the four required photos following our natural lighting and background guidelines.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">What is the application fee? <span class="faq-icon">+</span></button>
+            <div class="faq-answer">We charge a once-off R19.00 (ZAR) administrative fee for independent applications. This ensures we can dedicate time to properly review every professional submission.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">What kind of photos should I submit? <span class="faq-icon">+</span></button>
+            <div class="faq-answer">We require clear, unedited shots: a headshot, profile shot, and a full-body shot. Avoid filters, heavy makeup, and distracting backgrounds. Plain clothing is best.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">How old do I need to be? <span class="faq-icon">+</span></button>
+            <div class="faq-answer">We scout talent of all ages. However, if you are under 18, a parent or legal guardian must provide consent and be the primary point of contact during the process.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">When will I receive a response? <span class="faq-icon">+</span></button>
+            <div class="faq-answer">Due to the volume of applications, we only contact successful candidates. If our scouts are interested, you will typically hear from us within 14 working days.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Do I need a professional portfolio? <span class="faq-icon">+</span></button>
+            <div class="faq-answer">No. In fact, we prefer "digitals" or "polaroids"—simple, natural photos taken on a smartphone. We want to see your natural potential, not professional editing.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">What is a placement agency? <span class="faq-icon">+</span></button>
+            <div class="faq-answer">NTA is a scouting and placement agency. We discover talent and use our industry network to find you the best management agency to sign with long-term.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Are there height and size requirements? <span class="faq-icon">+</span></button>
+            <div class="faq-answer">The industry is evolving. While some high-fashion agencies have specific requirements, we scout for various markets including commercial, fitness, and curve.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Can I apply if I live outside Cape Town? <span class="faq-icon">+</span></button>
+            <div class="faq-answer">Yes. While we are based in Cape Town, we scout talent across South Africa and can facilitate virtual introductions with global agencies.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">What is the 10% placement commission? <span class="faq-icon">+</span></button>
+            <div class="faq-answer">If NTA successfully places you with a model agency, we receive a 10% commission from your first two professional bookings as a scouting success fee.</div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-section">
+            <h3>LOCATION</h3>
+            <p>Cape Town, South Africa</p>
+        </div>
+        <div class="footer-section">
+            <h3>OPERATING HOURS</h3>
+            <p>Monday - Friday: 10am - 7pm</p>
+            <p>Saturday: 11am - 7pm</p>
+            <p>Sunday: Closed</p>
+        </div>
+        <div class="footer-section">
+            <h3>CONTACT</h3>
+            <div class="contact-row">
+                <a href="https://www.instagram.com/ntamodelssa" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
+                </a>
+                <span class="separator" style="margin: 0 10px; opacity: 0.5;">|</span>
+                <span>+27 78 009 3318</span>
+            </div>
+            <p style="margin-top: 10px;">models@ntamodels.co.za</p>
+        </div>
+        <div class="footer-row">
+            <p>Copyright © 2025 NTA Scouting & Placement Agency. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuIcon = document.getElementById('menu-icon');
+            const menuOverlay = document.getElementById('menu-overlay');
+            const infoDropdown = document.getElementById('info-dropdown');
+            const infoSubmenu = document.getElementById('info-submenu');
+            const body = document.body;
+            
+            const isDesktop = () => window.matchMedia("(min-width: 992px)").matches;
+
+            // --- Mobile Menu Toggle ---
+            if (menuIcon && menuOverlay) {
+                 menuIcon.addEventListener('click', () => {
+                    if (!isDesktop()) {
+                        if (menuOverlay.style.width === '100%') {
+                            closeNav();
+                        } else {
+                            openNav();
+                        }
+                    }
+                });
+            }
+
+            // Close menu if clicking outside
+            menuOverlay.addEventListener('click', (e) => {
+                if (!isDesktop() && e.target === menuOverlay) {
+                    closeNav();
+                }
+            });
+
+            // --- Info Submenu Toggle (Mobile Only) ---
+            infoDropdown.addEventListener('click', (e) => {
+                if (!isDesktop()) {
+                    // Prevent link navigation if it were a link
+                    if (infoSubmenu.style.maxHeight) {
+                        infoSubmenu.style.maxHeight = null;
+                    } else {
+                        infoSubmenu.style.maxHeight = infoSubmenu.scrollHeight + 'px';
+                    }
+                }
+            });
+
+            function openNav() {
+                menuOverlay.style.width = '100%';
+                menuIcon.classList.add('open');
+                body.style.overflow = 'hidden';
+            }
+
+            function closeNav() {
+                menuOverlay.style.width = '0%';
+                menuIcon.classList.remove('open');
+                body.style.overflow = 'auto';
+                infoSubmenu.style.maxHeight = null; 
+            }
+
+            // --- FAQ Accordion Logic ---
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', () => {
+                    const faqItem = button.parentElement;
+                    faqItem.classList.toggle('active');
+                    
+                    // Close others
+                    document.querySelectorAll('.faq-item').forEach(otherItem => {
+                        if (otherItem !== faqItem) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
